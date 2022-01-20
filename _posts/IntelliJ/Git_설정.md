@@ -5,7 +5,7 @@
 
 ## IntelliJ에서 Git 설정 하기
 
-![IntelliJ Git 경로 설정](../../public/_posts/Git/Git_설정_스크린샷1.png)
+![IntelliJ Git 경로 설정](../../public/_posts/IntelliJ/Git_설정_스크린샷1.png)
 
 1. 설정
 2. Version Control
