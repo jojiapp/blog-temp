@@ -104,6 +104,69 @@ pbcopy <~/.ssh/id_rsa.pub # 공개키를 클립보드에 복사합니다.
 
 SSH로 선택 후, 해당 값을 복사하여 사용하면 됩니다.
 
+## GitHub 계정 여러 개 사용하기
+
+SSH 키 마다 계정을 매핑 시켜 사용할 수 있습니다.
+
+> 이 경우, SSH Key의 이름을 id_rsa로 두기보단 특정 이름으로 지어주는것이 좋습니다.
+
+### Config 등록
+
+```zsh
+vi /.ssh/config
+```
+
+```zsh
+Host github.com-jojiapp # github.com-사용할 이름**
+  HostName github.com # remote name
+  IdentityFile ~/.ssh/id_rsa_jojiapp # ssh-key 파일 경로
+  User jojiapp # GitHub 계정 이름
+```
+
+> GitHub계정에 따라 여러 개를 작성해주면 됩니다.
+
+### 사용 방법
+
+```zsh
+git clone git@{Host}:{username}/{repository}.git
+```
+
+```zsh
+git clone git@github.com-jojiapp:jojiapp/jojiapp.github.io.git
+```
+
+Git에서 복사 후 github.com 뒤에 Host에서 작성 한대로 -jojiapp(사용할 이름)을 추가해주면 됩니다.
+
+## GitHub Commit 기록이 남지 않을 때
+
+SSH를 이용하여 연결 후, 작업을 하고 푸쉬를 했는데 GitHub Commit 기록이 남지 않는 경우가 있습니다.
+
+대부분의 경우 GitHub의 이메일과 로컬에서 사용중인 이메일이 달라서 생기는 이슈입니다.
+
+### 이메일 확인
+
+```zsh
+Author: 조지헌 <jojiapp@jojiheon-ui-MacBookPro.local>
+```
+
+`git log`를 찍어보면 이메일 정보가 이상하게 되어있습니다.
+
+위와 같다면 GitHub의 이메일과 다르기 때문에 Commit 기록이 남지 않는것 입니다.
+
+> global로 설정 된 이메일이 있다면 해당 값을 사용하지만 설정하지 않았다면 위 처럼 나옵니다.
+
+### 해결 방법
+
+```zsh
+git config user.email jojiapp
+```
+
+여러 개의 계정을 사용중일 경우 위 처럼 각 프로젝트마다 어떤 이메일을 사용하는지 설정해 주면 됩니다.
+
+> global로 설정한 이메일보다 우선순위가 높습니다.
+
+---
+
 ## 참고사이트
 
 - [SSH를 사용하여 Git 리포지토리 연결](https://docs.microsoft.com/ko-kr/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
