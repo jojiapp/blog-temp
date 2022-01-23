@@ -85,11 +85,11 @@ ssh-add -l
 
 SSH 인증방식은 로컬에 있는 개인키와 GitHub(원격저장소)에 있는 공개키를 이용해 인증을 처리하는 방식이기 때문에 Github(원격저장소)에 공개키를 등록해 주어야 합니다.
 
-![GitHub Settings](../../public/_posts/Git/GitHub_SSH_연결_스크린샷_1.png)
+![GitHub Settings](../../public/_posts/Git/GitHub_SSH_연결/screenshot1.png)
 
-![GitHub SSH and GPG keys](../../public/_posts/Git/GitHub_SSH_연결_스크린샷_2.png)
+![GitHub SSH and GPG keys](../../public/_posts/Git/GitHub_SSH_연결/screenshot2.png)
 
-![GitHub New SSH Keys](../../public/_posts/Git/GitHub_SSH_연결_스크린샷_3.png)
+![GitHub New SSH Keys](../../public/_posts/Git/GitHub_SSH_연결/screenshot3.png)
 
 - Title: 해당 키 값을 구별할 수 있는 자신이 원하는 제목을 넣으면 됩니다.
 - Key: 공개키를 넣어주면 됩니다.
@@ -100,7 +100,7 @@ pbcopy <~/.ssh/id_rsa.pub # 공개키를 클립보드에 복사합니다.
 
 ## SSH로 사용하기
 
-![GitHub SSH 사용하기](../../public/_posts/Git/GitHub_SSH_연결_스크린샷_4.png)
+![GitHub SSH 사용하기](../../public/_posts/Git/GitHub_SSH_연결/screenshot4.png)
 
 SSH로 선택 후, 해당 값을 복사하여 사용하면 됩니다.
 
@@ -158,7 +158,7 @@ Author: 조지헌 <jojiapp@jojiheon-ui-MacBookPro.local>
 ### 해결 방법
 
 ```zsh
-git config user.email jojiapp
+git config user.email jojiapp@gmail.com
 ```
 
 여러 개의 계정을 사용중일 경우 위 처럼 각 프로젝트마다 어떤 이메일을 사용하는지 설정해 주면 됩니다.
@@ -167,7 +167,7 @@ git config user.email jojiapp
 
 ---
 
-## 참고사이트
+## 참고 사이트
 
 - [SSH를 사용하여 Git 리포지토리 연결](https://docs.microsoft.com/ko-kr/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
 - [github 접속을 https에서 ssh 접속으로 변경하기](https://velog.io/@igotoo/github-%EC%A0%91%EC%86%8D%EC%9D%84-https%EC%97%90%EC%84%9C-ssh-%EC%A0%91%EC%86%8D%EC%9C%BC%EB%A1%9C-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0)

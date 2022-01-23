@@ -11,21 +11,21 @@
 
 ## 설정
 
-![IntelliJ Settings](../../public/_posts/IntelliJ/터미널에서_IntelliJ_열기_스크린샷_1.png)
+- `IntelliJ` -> `Settings 클릭`
 
-IntelliJ -> Settings 클릭
+![IntelliJ Settings](../../public/_posts/IntelliJ/터미널에서_IntelliJ_열기/screenshot1.png)
 
-![Configuration Shell Script Enable](../../public/_posts/IntelliJ/터미널에서_IntelliJ_열기_스크린샷_2.png)
+- `Configuration` -> `Shell scripts generation is disabled` -> `Enable 클릭`
 
-Configuration -> Shell scripts generation is disabled -> Enable 클릭
+![Configuration Shell Script Enable](../../public/_posts/IntelliJ/터미널에서_IntelliJ_열기/screenshot2.png)
 
-![Configuration Shell Script Enable](../../public/_posts/IntelliJ/터미널에서_IntelliJ_열기_스크린샷_3.png)
+- 제일 아래에 `Generate shell scripts`를 켜줍니다.
 
-제일 아래에 Generate shell scripts를 켜줍니다.
+![ToolBox Settings Generate shell scripts](../../public/_posts/IntelliJ/터미널에서_IntelliJ_열기/screenshot3.png)
 
-![Configuration Shell Script Enable](../../public/_posts/IntelliJ/터미널에서_IntelliJ_열기_스크린샷_4.png)
+- 해당 경로로 들어가 idea 라는 Shell script 파일이 생성 되어 있다면 정상적으로 된 것입니다.
 
-해당 경로로 들어가 idea 라는 Shell script 파일이 생성 되어 있다면 정상적으로 된 것입니다.
+![ToolBox Settings Generate shell scripts On](../../public/_posts/IntelliJ/터미널에서_IntelliJ_열기/screenshot4.png)
 
 ## Command Line으로 IntelliJ 실행
 
