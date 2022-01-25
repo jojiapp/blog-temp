@@ -1,4 +1,8 @@
-# [MacOS] Homebrew
+---
+description: Homebrew 설치 및 사용법 알아보기.  
+createdAt: 2022-01-24  
+updatedAt: 2022-01-24
+---
 
 > Homebrew는 MacOS용 패키지 관리 앱입니다. Homebrew를 사용하면 보다 쉽게 개발환경을 셋팅할 수 있습니다.  
 > 기본적으로는 커맨드라인과 시스템 패키지들을 설치하는데 사용되나, Cask 확장을 통해 GUI 설치에도 사용할 수 있습니다.

@@ -1,4 +1,8 @@
-# [Git] GitHub SSH 연결
+---
+description: GitHub에 SSH를 연결하여 사용하기.  
+createdAt: 2022-01-20  
+updatedAt: 2022-01-22
+---
 
 > GitHub를 원격저장소로 Repository를 사용할 경우 기본적으로 HTTPS로 접속하게 됩니다.  
 > 이 경우 SSH를 사용할 때 보다는 보안이 좋지 않습니다.  

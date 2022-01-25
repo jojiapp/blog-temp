@@ -1,4 +1,8 @@
-# [IntelliJ] Code Style 설정
+---
+description: IntelliJ에서 Code Style을 설정하여 일관된 코드 스타일 유지하기.  
+createdAt: 2022-01-23  
+updatedAt: 2022-01-23C
+---
 
 > 혼자서 개발을 진행 할 때는 들여쓰기가 2개든 4개든 상관이 없습니다. 하지만, 여러 명에서 같이 작업을 하게 된다면 문제가 됩니다.
 >

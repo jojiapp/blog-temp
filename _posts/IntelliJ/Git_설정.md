@@ -1,4 +1,8 @@
-# [Intellij] Git 설정
+---
+description: IntelliJ 에서 로컬에 설치한 Git 사용하도록 설정하기.  
+createdAt: 2022-01-20  
+updatedAt: 2022-01-20
+---
 
 > IntelliJ는 기본적으로 Git을 내장하고 있기 때문에 로컬에 설치한 Git과 버전이 다를수 있습니다.  
 > 이럴 경우, 로컬에 설치한 Git을 사용하도록 설정을 바꿔주면 됩니다.
