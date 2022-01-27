@@ -1,7 +1,7 @@
 ---
 description: Homebrew 설치 및 사용법 알아보기.  
 createdAt: 2022-01-24  
-updatedAt: 2022-01-27
+updatedAt: 2022-01-28
 ---
 
 > Homebrew는 MacOS용 패키지 관리 앱입니다. Homebrew를 사용하면 보다 쉽게 개발환경을 셋팅할 수 있습니다.  
@@ -46,7 +46,7 @@ which brew
 
 `/opt/homebrew/bin/brew` 경로가 나온다면 정상적으로 설치가 된 것입니다.
 
-## 설치할 패키지 검색
+## 설치할 패키지 검색 [search]
 
 `Homebrew`를 설치했으면, 이제 패키지를 설치할 수 있습니다. 하지만 모든 패키지를 설치할 수 있는것도 아닐 뿐더러, 해당 이름으로 등록된 패키지가 하나가 아닐 수 있습니다.
 
@@ -147,7 +147,7 @@ gitfiend                   gitter                     webplotdigitizer
 - `Formulae`: `CLI` 용 패키지를 가르키는 용어입니다.
 - `Casks`: `GUI`용 패키지를 가르키는 용어입니다.
 
-## 패키지 설치
+## 패키지 설치 [install]
 
 패키지 설치는 `install` 키워드를 사용하여 할 수 있습니다.
 
@@ -165,7 +165,7 @@ brew install [패키지이름]
 brew install git
 ```
 
-## GUI 패키지 설치
+## GUI 패키지 설치 [install --cask]
 
 기존에는 `Chrome`와 같은 `GUI`앱을 받을려면 공식 사이트에 접속하여 받아야합니다.
 
@@ -236,7 +236,7 @@ Warning: No checksum defined for cask 'google-chrome', skipping verification.
 
 `🍺 google-chrome was successfully installed!` 해당 문구가 나오면 정상적으로 설치 된것입니다.
 
-## 설치된 패키지 확인
+## 설치된 패키지 확인 [ls]
 
 설치된 패키지 확인은 `ls` 키워드를 통해 할 수 있습니다.
 
@@ -265,7 +265,7 @@ google-chrome
 
 > 저는 맥북을 산지 얼마 되지 않아 설치 된게 별로 없습니다.
 
-## 패키지 삭제
+## 패키지 삭제 [uninstall]
 
 패키지 삭제는 `uninstall` 키워드를 사용하여 할 수 있습니다.
 
@@ -290,7 +290,7 @@ brew uninstall google-chrome
 
 `--cask` 옵션을 사용하여 설치했어도 위와 같이 삭제하면 됩니다.
 
-## 패키지 삭제 이후 잔여 파일 삭제
+## 패키지 삭제 이후 잔여 파일 삭제 [cleanup]
 
 패키지를 삭제해도 잔여 파일이 남아있을 수 있습니다.
 
@@ -302,7 +302,7 @@ brew cleanup
 
 위와 같이 작성하면 설치 되어 있는 패키지 외에 잔여 파일을 모두 삭제합니다.
 
-## 업데이트가 필요한 패키지 확인
+## 업데이트가 필요한 패키지 확인 [update]
 
 어떤 패키지가 업데이트가 가능한지 확인은 `update` 키워드를 사용하여 할 수 있습니다.
 
@@ -312,7 +312,7 @@ brew update
 
 위와 같이 작성하면 설치된 패키지 전체에 대하여 업데이트가 가능한 패키지는 `✔`되어 있습니다.
 
-## 업데이트 될 버전 확인
+## 업데이트 될 버전 확인 [outdated]
 
 `update`키워드를 통해 업데이트가 가능한 패키지를 확인 할 수 있었습니다.
 
@@ -324,7 +324,7 @@ brew outdated
 
 위와 같이 작성하면 업데이트 가능한 패키지들에 대하여 어떤 버전으로 업데이트를 할 수 있는지 확인할 수 있습니다.
 
-## 패키지 업데이트
+## 패키지 업데이트 [upgrade]
 
 `update`키워드는 어떤 패키지가 업데이트가 가능한지 여부 판별입니다.
 
