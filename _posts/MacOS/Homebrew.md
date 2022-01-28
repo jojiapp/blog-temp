@@ -172,7 +172,7 @@ brew install git
 `Homebrew`에서는 `install` 뒤에 `--cask`옵션을 붙이면 설치가 됩니다.
 
 ```zsh
-brew install [패키지이름] --cask
+brew install --cask [패키지이름] 
 ```
 
 ### GUI 패키지 설치 예시
