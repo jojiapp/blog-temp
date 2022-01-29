@@ -1,16 +1,18 @@
 ---
 description: GitHub에 SSH를 연결하여 사용하기.  
 createdAt: 2022-01-20  
-updatedAt: 2022-01-22
+updatedAt: 2022-01-29
 ---
 
 > GitHub를 원격저장소로 Repository를 사용할 경우 기본적으로 HTTPS로 접속하게 됩니다.  
 > 이 경우 SSH를 사용할 때 보다는 보안이 좋지 않습니다.  
 > 또한, 매번 아이디 및 패스워드를 입력해야하는 번거로움이 있습니다.
 >
-> SSH를 이용하면 HTTPS보다 보안도 좋고, 매번 아이디 및 비밀번호를 입력해야하는 수고를 덜수 있습니다.
+> SSH를 사용하면 HTTPS보다 보안도 좋고, 매번 아이디 및 비밀번호를 입력해야하는 수고를 덜 수 있습니다.
 
-## SSH 키 확인
+## SSH 키
+
+### SSH 키 확인
 
 이미 SSH 키가 존재하는 상태에서 다시 발급 시, 기존의 키가 덮어쓰기 되어버리기 때문에 SSH 키가 존재하는지 확인해야합니다.
 
@@ -26,20 +28,22 @@ ls
 
 기본값으로 생성한 경우 위 두 파일이 있다면 이미 **발급을 한 경우**입니다.
 
-## SSH 키 발급
+### SSH 키 발급
 
 ```zsh
-ssh-keygen -C "jojiapp@gmail.com" # 자신의 GitHub 이메일
+ssh-keygen -t rsa -b 4096 -C "jojiapp@gmail.com"
 ```
 
-해당 명령어는 SSH에서 사용할 3072bit RSA 키를 생성합니다.
+- `-t`: 생성할 키 타입
+- `-b`: 생성할 키의 비트(bits) 수
+- `-C`: 코멘트
 
 ```zsh
-Enter file in which to save the key (~/.ssh/id_rsa):
+Enter file in which to save the key (~/.ssh/id_rsa): ~/.ssh/id_rsa_jojiapp
 ```
 
 Enter를 치시면 기본적으로 `~/.ssh` 경로에 SSH 파일(`id_rsa`, `id_rsa.pub`)이 생성되게 됩니다.  
-다른 경로로 하고 싶으면 값을 입력하면 됩니다.
+저는 다른 이름으로 하고 싶었기 때문에 뒤에 `_jojiapp`을 붙였습니다.
 
 ```zsh
 Enter passphrase (empty for no passphrase):
@@ -49,45 +53,71 @@ Enter same passphrase again:
 암호를 입력하여 보안을 더 강화할 수 있습니다.  
 Enter를 치시면 기본적으로 암호를 생성하지 않습니다.
 
-비밀번호를 입력 시, 해당 SSH키를 사용할 때마다 입력하여야 합니다.
+> 암호를 입력하는것을 권장합니다.
 
 ```zsh
-Your identification has been saved in ~/.ssh/id_rsa
-Your public key has been saved in ~/.ssh/id_rsa.pub
+Your identification has been saved in ~/.ssh/id_rsa_jojiapp
+Your public key has been saved in ~/.ssh/id_rsa_jojiapp.pub
 ```
 
 위와 같은 문구가 나왔다면 SSH키가 발급 된 것입니다.
 
-## ssh-agent 등록
+## ssh-agent
 
-`ssh-agent`에 개인키를 등록해 두면 `Git`이 `ssh-agent`에 등록되어 있는 개인키 정보를 사용하여 SSH 인증처리를 합니다.
+`ssh-agent`가 없어도 `SSH 키`를 가지고 아이디 및 비밀번호 없이 원격 서버에 접속 할 수 있습니다.  
+하지만, 위에 `SSH 키`를 만드는 과정에서 비밀번호를 입력 시, 해당 `SSH 키`를 사용할 때마다 `SSH 키` 비밀번호를 입력해야합니다.
 
-그렇기 때문에 한 번 등록 해두면 매번 아이디 및 비밀번호를 입력할 필요가 없어지게 됩니다.
+`ssh-agent`를 사용하면 해당 정보를 캐싱해서 메모리에 담아두기 때문에 비밀번호를 다시 치지 않아도 됩니다.
+
+> 비밀번호가 없다면 사실상 ssh-agent는 무의미 합니다.
+
+### ssh-agent 등록
+
+- `ssh-agent`를 실행합니다.
 
 ```zsh
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa # 위에서 생성한 SSH 개인키
-
-Identity added: /Users/jojiapp/.ssh/id_rsa (jojiapp@gmail.com) # 해당 문구가 출력되면 등록 된 것입니다.
 ```
 
-## ssh-agent 삭제
+- `ssh-agent`에 개인키를 등록합니다.
+- `ssh-agent`는 메모리에 올라가기 때문에, 재부팅 시 값이 날라가게 됩니다. 이를 방지하려면 기간을 설정해주면 됩니다.
+	- `-t` 옵션을 통해 기간을 설정 할 수 있으며, 기본 단위는 `초(second)`입니다.
+	- `분(m)`, `시(h)`, `일(d)`, `주(w)` 단위로 설정할 수 있습니다.
 
 ```zsh
-ssh-add -D ~/.ssh/id_rsa
+ssh-add -t 4w ~/.ssh/id_rsa_jojiapp # 위에서 생성한 SSH 개인키
+
+Identity added: /Users/jojiapp/.ssh/id_rsa_jojiapp (jojiapp@gmail.com)
+Lifetime set to 2419200 seconds
 ```
 
-`-D` 옵션을 통해 ssh-agent에서 제거 할 수 있습니다.
+비밀번호를 입력하면 위와 같이 4주 시간에 맞춰 생성되었을을 알 수 있습니다.
 
-## ssh-agent 조회
+### ssh-agent 조회
+
+- `-l` 옵션을 주면 됩니다.
 
 ```zsh
 ssh-add -l
 ```
 
-## GitHub에 공개키 등록
+### ssh-agent 삭제
 
-SSH 인증방식은 로컬에 있는 개인키와 GitHub(원격저장소)에 있는 공개키를 이용해 인증을 처리하는 방식이기 때문에 Github(원격저장소)에 공개키를 등록해 주어야 합니다.
+- `-d`옵션을 주고 삭제할 개인키 경로를 적어주면 됩니다.
+
+```zsh
+ssh-add -d ~/.ssh/id_rsa
+```
+
+- 전체 개인키를 삭제하려면 `-D`옵션을 주면 됩니다.
+
+```zsh
+ssh-add -D
+```
+
+## GitHub 공개키 등록
+
+SSH 인증방식은 `로컬에 있는 개인키`와 `GitHub(원격저장소)에 있는 공개키`를 이용해 인증을 처리하는 방식이기 때문에 Github(원격저장소)에 공개키를 등록해 주어야 합니다.
 
 ![GitHub Settings](../../public/_posts/Git/GitHub_SSH_연결/screenshot1.png)
 
@@ -99,10 +129,10 @@ SSH 인증방식은 로컬에 있는 개인키와 GitHub(원격저장소)에 있
 - Key: 공개키를 넣어주면 됩니다.
 
 ```zsh
-pbcopy <~/.ssh/id_rsa.pub # 공개키를 클립보드에 복사합니다.
+pbcopy <~/.ssh/id_rsa_jojiapp.pub # 공개키를 클립보드에 복사합니다.
 ```
 
-## SSH로 사용하기
+### SSH로 사용하기
 
 ![GitHub SSH 사용하기](../../public/_posts/Git/GitHub_SSH_연결/screenshot4.png)
 
@@ -114,18 +144,23 @@ SSH 키 마다 계정을 매핑 시켜 사용할 수 있습니다.
 
 > 이 경우, SSH Key의 이름을 id_rsa로 두기보단 특정 이름으로 지어주는것이 좋습니다.
 
-### Config 등록
+### config 파일 등록
 
 ```zsh
-vi /.ssh/config
+vi ~/.ssh/config
 ```
 
 ```zsh
-Host github.com-jojiapp # github.com-사용할 이름**
-  HostName github.com # remote name
-  IdentityFile ~/.ssh/id_rsa_jojiapp # ssh-key 파일 경로
-  User jojiapp # GitHub 계정 이름
+Host github.com-jojiapp
+        HostName github.com
+        IdentityFile ~/.ssh/id_rsa_jojiapp
+        User jojiapp
 ```
+
+- `Host`: github.com-사용할 이름
+- `HostName`: 원격저장소 이름
+- `IdentityFile`: ssh-key 파일 경로
+- `User`: GitHub 계정 이름
 
 > GitHub계정에 따라 여러 개를 작성해주면 됩니다.
 
@@ -177,3 +212,5 @@ git config user.email jojiapp@gmail.com
 - [github 접속을 https에서 ssh 접속으로 변경하기](https://velog.io/@igotoo/github-%EC%A0%91%EC%86%8D%EC%9D%84-https%EC%97%90%EC%84%9C-ssh-%EC%A0%91%EC%86%8D%EC%9C%BC%EB%A1%9C-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0)
 - [GitHub ssh key 생성하고 등록하고 사용하기](https://syung05.tistory.com/20)
 - [맥북에서 GitHub 계정 여러개 사용하는 방법](https://somjang.tistory.com/entry/%EB%A7%A5%EB%B6%81%EC%97%90%EC%84%9C-GitHub-%EA%B3%84%EC%A0%95-%EC%97%AC%EB%9F%AC%EA%B0%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
+- [SSH Keygen을 이용한 키 생성 방법과 ssh-agent에 대한 간단 설명](https://devlog.jwgo.kr/2019/04/17/ssh-keygen-and-ssh-agent/)
+- [ssh-agent 가 private key 를 캐싱할 수 있도록 등록해 주는 ssh-add 명령어 사용법](https://www.lesstif.com/lpt/ssh-agent-private-key-ssh-add-123338804.html)
