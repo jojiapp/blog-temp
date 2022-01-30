@@ -1,7 +1,7 @@
 ---
 description: GitHub에 SSH를 연결하여 사용하기.  
 createdAt: 2022-01-20  
-updatedAt: 2022-01-29
+updatedAt: 2022-01-30
 ---
 
 > GitHub를 원격저장소로 Repository를 사용할 경우 기본적으로 HTTPS로 접속하게 됩니다.  
@@ -20,6 +20,9 @@ updatedAt: 2022-01-29
 
 ```zsh
 ~/.ssh
+```
+
+```zsh
 ls
 ```
 
@@ -79,19 +82,45 @@ Your public key has been saved in ~/.ssh/id_rsa_jojiapp.pub
 eval "$(ssh-agent -s)"
 ```
 
-- `ssh-agent`에 개인키를 등록합니다.
-- `ssh-agent`는 메모리에 올라가기 때문에, 재부팅 시 값이 날라가게 됩니다. 이를 방지하려면 기간을 설정해주면 됩니다.
-	- `-t` 옵션을 통해 기간을 설정 할 수 있으며, 기본 단위는 `초(second)`입니다.
-	- `분(m)`, `시(h)`, `일(d)`, `주(w)` 단위로 설정할 수 있습니다.
-
 ```zsh
 ssh-add -t 4w ~/.ssh/id_rsa_jojiapp # 위에서 생성한 SSH 개인키
+```
 
+- `ssh-agent`에 개인키를 등록합니다.
+	- `-t` 옵션을 통해 기간을 설정 할 수 있으며, 기본 단위는 `초(second)`입니다.
+	- `분(m)`, `시(h)`, `일(d)`, `주(w)` 단위로 설정할 수 있습니다.
+	- 생략 시, 기본값은 무제한입니다.
+
+```zsh
 Identity added: /Users/jojiapp/.ssh/id_rsa_jojiapp (jojiapp@gmail.com)
 Lifetime set to 2419200 seconds
 ```
 
 비밀번호를 입력하면 위와 같이 4주 시간에 맞춰 생성되었을을 알 수 있습니다.
+
+### ssh-agent 영구 등록 (MacOS)
+
+`ssh-agent`는 메모리에 값이 올라가기 때문에, 재부팅 시 모든 값들이 날라가게 됩니다. 그렇기 때문에 재부팅 시에 `ssh-agent`에 키를 다시 등록해주어야 합니다.
+
+`MacOS`에서는 `--apple-use-keychain` 옵션으로 `키 체인`에 해당 `SSH 키`를 등록해두면 재부팅 시 다시 키를 등록하지 않아도 사용할 수 있습니다.
+
+> 기존의 `-K` 옵션이 `--apple-use-keychain` 옵션으로 변경되었습니다.
+
+```zsh
+ssh-add --apple-use-keychain ~/.ssh/id_rsa_jojiapp
+```
+
+- `ssh-agent`가 해당 키 체인을 사용할 수 있도록 `~/.ssh/config` 파일에 추가합니다.
+
+```shell
+Host *
+        UseKeychain yes
+        AddKeysToAgent yes
+        IdentityFile ~/.ssh/id_rsa_jojiapp
+        # IdentityFile ~/.ssh/id_rsa_other
+```
+
+> 해당 `SSH 키`를 최초로 사용하는 시점에 `ssh-agent`에 자동 등록 됩니다.
 
 ### ssh-agent 조회
 
@@ -106,7 +135,7 @@ ssh-add -l
 - `-d`옵션을 주고 삭제할 개인키 경로를 적어주면 됩니다.
 
 ```zsh
-ssh-add -d ~/.ssh/id_rsa
+ssh-add -d ~/.ssh/id_rsa_jojiapp
 ```
 
 - 전체 개인키를 삭제하려면 `-D`옵션을 주면 됩니다.
@@ -144,13 +173,13 @@ SSH 키 마다 계정을 매핑 시켜 사용할 수 있습니다.
 
 > 이 경우, SSH Key의 이름을 id_rsa로 두기보단 특정 이름으로 지어주는것이 좋습니다.
 
-### config 파일 등록
+### config 파일 추가
 
 ```zsh
 vi ~/.ssh/config
 ```
 
-```zsh
+```shell
 Host github.com-jojiapp
         HostName github.com
         IdentityFile ~/.ssh/id_rsa_jojiapp
@@ -174,11 +203,11 @@ git clone git@{Host}:{username}/{repository}.git
 git clone git@github.com-jojiapp:jojiapp/jojiapp.github.io.git
 ```
 
-Git에서 복사 후 github.com 뒤에 Host에서 작성 한대로 -jojiapp(사용할 이름)을 추가해주면 됩니다.
+Git에서 복사 후 `github.com` 뒤에 `Host`에서 작성 한대로 `-jojiapp(사용할 이름)`을 추가해주면 됩니다.
 
 ## GitHub Commit 기록이 남지 않을 때
 
-SSH를 이용하여 연결 후, 작업을 하고 푸쉬를 했는데 GitHub Commit 기록이 남지 않는 경우가 있습니다.
+SSH를 이용하여 연결 후, 작업을 하고 푸쉬를 했는데 `GitHub Commit` 기록이 남지 않는 경우가 있습니다.
 
 대부분의 경우 GitHub의 이메일과 로컬에서 사용중인 이메일이 달라서 생기는 이슈입니다.
 
@@ -214,3 +243,5 @@ git config user.email jojiapp@gmail.com
 - [맥북에서 GitHub 계정 여러개 사용하는 방법](https://somjang.tistory.com/entry/%EB%A7%A5%EB%B6%81%EC%97%90%EC%84%9C-GitHub-%EA%B3%84%EC%A0%95-%EC%97%AC%EB%9F%AC%EA%B0%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
 - [SSH Keygen을 이용한 키 생성 방법과 ssh-agent에 대한 간단 설명](https://devlog.jwgo.kr/2019/04/17/ssh-keygen-and-ssh-agent/)
 - [ssh-agent 가 private key 를 캐싱할 수 있도록 등록해 주는 ssh-add 명령어 사용법](https://www.lesstif.com/lpt/ssh-agent-private-key-ssh-add-123338804.html)
+- [Mac 에서 ssh-agent 사용하기](https://lazyker.tistory.com/15)
+- [How can I permanently add my SSH private key to Keychain so it is automatically available to ssh?](https://apple.stackexchange.com/questions/48502/how-can-i-permanently-add-my-ssh-private-key-to-keychain-so-it-is-automatically)
