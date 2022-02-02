@@ -77,6 +77,26 @@ updatedAt:
 
 > `Git` 명령어는 `Git 저장소` 내에서만 사용이 가능합니다.
 
+### GitHub(원격저장소) Repository 지정하기 [remote]
+
+- `git remote add <alias> <HTTPS | SSH>`: `GitHub(원격저장소)` `Repository`를 지정할 수 있습니다.
+	- 추후 `git push <alias> <branch>` 명령어를 통해 `GitHub(원격저장소)`에 파일을 등록할 수 있습니다.
+- `git remote remove <alias>`: 해당 `GitHub(원격저장소)` `Repository`에 대한 정보를 삭제합니다.
+- `git remote -v | --verbose`: 현재 등록된 `GitHub(원격저장소)` 정보를 볼 수 있습니다.
+
+### GitHub(원격저장소) Repository 내려받기 [clone]
+
+`git clone <HTTPS | SSH> [폴더 명]` 명령어를 통해 `GitHub(원격저장소)` `Repository`를 내려받을 수 있습니다.
+
+- `[폴더 명]`: 생략 시, 현재 폴더 안에 `Repository` 명으로 폴더가 생성되며 해당 폴더 안에 파일들이 받아집니다.
+- `[폴더 명]` 자리에 `.` 입력 시, 해당 폴더에 파일들이 받아집니다.
+
+![GitHub Clone](../../public/_posts/Git/Git_사용법/screenshot1.png)
+
+`SSH`의 경우 [GitHub(원격저장소)에 SSH 연결 작업](/_posts/Git/GitHub_SSH_연결)을 한 뒤, 사용 할 수 있습니다.
+
+> `clone`의 경우 `remote` 정보가 자동으로 등록되어 있습니다.
+
 ### 상태 확인 [status]
 
 `git status` 명령어를 통해 파일들의 상태를 확인할 수 있습니다.
