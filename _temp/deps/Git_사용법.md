@@ -132,8 +132,27 @@ updatedAt:
 - `git commit -am "설명"`: `-a`와 `-m`을 합친 것입니다.
 - `git commit --amend`: 이전 `commit`에 덮어쓰기 합니다.
 
+## Git 설정
+
+전체적인 설정 파일은 `root`에 `.gitconfig` 파일에 기록됩니다.
+
+### 명령어 간단하게 사용하기 [alias]
+
+`alias`를 사용하여 명령어를 설정파일에 등록하면 별칭으로 사용할 수 있습니다.
+
+```zsh
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.lg log
+```
+
+> `--global` 옵션을 붙여주지 않으면 해당 프로젝트에만 적용이 되므로, 한번 설정해두고 계속 사용하고 싶다면 `--global` 옵션을 꼭 붙여줍니다.
+
 ---
 
 ## 참고 사이트
 
 - [2.2 Git의 기초 - 수정하고 저장소에 저장하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%88%98%EC%A0%95%ED%95%98%EA%B3%A0-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0)
+- [2.7 Git의 기초 - Git Alias](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-Git-Alias)
