@@ -97,11 +97,11 @@ updatedAt:
 
 > `clone`의 경우 `remote` 정보가 자동으로 등록되어 있습니다.
 
-### 상태 확인 [status]
+### status
 
-`git status` 명령어를 통해 파일들의 상태를 확인할 수 있습니다.
+`git status` 명령어를 통해 `Untracked`와 `Modified` 파일들의 상태를 확인할 수 있습니다.
 
-### Staged 상태로 변경 [add]
+### add
 
 `git add [파일 명]` 명령어를 통해 해당 파일을 `Staged` 상태 (`commit이 가능한 상태`)로 변경할 수 있습니다.
 
@@ -113,7 +113,7 @@ updatedAt:
 >
 > 즉, `git add .`을 사용하는 것이 더 좋습니다.
 
-### 파일을 원래 상태로 변경 [restore]
+### restore
 
 `git restore [파일 명]` 명령어를 통해 `Modified` 상태의 파일을 `Unmodified` 상태로 되돌릴 수 있습니다.
 
@@ -122,7 +122,7 @@ updatedAt:
 
 > `Unmodified` 상태가 되면 수정된 내용이 없다는 뜻이 되므로, 수정 됐던 내용은 지워집니다.
 
-### 저장 [commit]
+### commit
 
 `git commit` 명령어를 통해 `Staged` 상태인 파일들을 저장할 수 있습니다.
 
@@ -131,6 +131,52 @@ updatedAt:
 - `git commit -m "설명"`: 해당 `commit`에 대한 설명을 작성할 수 있습니다.
 - `git commit -am "설명"`: `-a`와 `-m`을 합친 것입니다.
 - `git commit --amend`: 이전 `commit`에 덮어쓰기 합니다.
+
+### log
+
+`git log` 명령어를 통해 `commit`된 내역들을 볼 수 있습니다.
+
+- `--abbrev-commit`: `commit hash`를 `7자리`로 줄여 보여줍니다.
+- `--stat`: 얼마나 변경 되었는지 요약하여 보여줍니다.
+- `-p | --patch`: 어떤 변경 사항이 있었는지 내용을 보여줍니다.
+- `--grep`: 해당 문자열이 포함된 내역을 찾습니다.
+	- `--grep "찾을문자열"`
+- `-<n>`: 최근 내역으로부터 `n`개만 보여줍니다. 보고 싶은 `limit`만큼 숫자를 주면 됩니다.
+	- `-1`: 최근 1개
+- `--since`: `yyyy-MM-dd hh:mm:ss`형식으로 해당 날짜 이후 커밋 기록을 보여줍니다.
+	- `0am`처럼 입력 시, `당일 12am` 부터 커밋 기록을 보여줍니다.
+	- `--since="2022-02-06 00:00:00"` 또는 `--since="12am"` 처럼 사용할 수 있습니다.
+
+#### 이쁘게 출력하기 위한 옵션
+
+- `--graph`: `commit`된 내역들의 그래프를 확인 할 수 있습니다.
+- `--all`: 다른 브랜치의 커밋 기록까지 보여줍니다.
+- `--date`: `short`를 사용하면 `yyyy-MM-dd`형식으로 날짜를 볼 수 있습니다.
+- `--pretty=<값>`: 로그를 이쁘게 보기 위해 사용합니다. 단독으로 사용되지는 않고 뒤에 값을 입력해주어야 합니다. `short` `full` `fuller`와 같은 옵션이 있지만 `format`을
+  사용하여 원하는대로 설정이 가능하기 때문에 `format`를 많이 사용합니다.
+	- `format:<값>`
+		- `%h`: 짧은 커밋 해시
+		- `%d`: branch 정보
+		- `%an`: Author 이름
+		- `%ae`: Author 이메일
+		- `%ad`: 절대 날짜
+		- `%ar`: 상대 날짜
+		- `%s`: 커밋 내용
+		- `%C(<색상>)`: 색상 변경
+			- 색상은 `red` `green` `blue` `white`만 사용가능하며 `reset`은 값을 초기화합니다.
+			- `bold`를 사용하여 진하게 표시할 수 있습니다.
+			- 터미널 설정에 따라, 보여지는 색은 조금씩 상이할 수 있습니다.
+		- 그 외
+		  옵션은 [2.3 Git의 기초 - 커밋 히스토리 조회하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%BB%A4%EB%B0%8B-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0)
+		  참고
+
+위의 내용을 바탕으로 저만의 `log`를 만들어 봤습니다.
+
+```zsh
+git log --graph --all --pretty=format:'%C(yellow)🕰 %ad | %C(green)# %h | %C(bold white)𝑻 %s%C(reset) >>> %C(blue)[%an] %C(yellow)%ar%C(red)%d' --date=short
+```
+
+![Git Log pretty 설정](../../public/_posts/Git/Git_사용법/log_screenshot.png)
 
 ## Git 설정
 
@@ -148,7 +194,7 @@ git config --list
 
 > `--local` 또는 `--global` 옵션을 넣어 조회도 가능합니다.
 
-### 명령어 간단하게 사용하기 [alias]
+### alias 설정
 
 `git config --global alias` 명령어를 사용하면 별칭으로 사용할 수 있습니다.
 
@@ -166,7 +212,9 @@ git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.unstage 'restore --staged'
-git config --global alias.lg log
+git config --global alias.today 'lg --since="12am"'
+git config --global alias.rollback 'reset @^'
+git config --global alias.lg "log --graph --all --pretty=format:'%C(yellow)🕰 %ad | %C(green)# %h | %C(bold white)𝑻 %s%C(reset) >>> %C(blue)[%an] %C(yellow)%ar%C(red)%d' --date=short"
 ```
 
 ### name, email 설정
@@ -192,4 +240,5 @@ git config --global user.email <email>
 ## 참고 사이트
 
 - [2.2 Git의 기초 - 수정하고 저장소에 저장하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%88%98%EC%A0%95%ED%95%98%EA%B3%A0-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0)
+- [2.3 Git의 기초 - 커밋 히스토리 조회하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%BB%A4%EB%B0%8B-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0)
 - [2.7 Git의 기초 - Git Alias](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-Git-Alias)
