@@ -136,19 +136,56 @@ updatedAt:
 
 전체적인 설정 파일은 `root`에 `.gitconfig` 파일에 기록됩니다.
 
+> `local` 설정을 먼저 사용하고, 없으면 `global` 설정을 사용합니다. (`local > global`)
+
+### Config 목록 조회
+
+`git config --list` 명령어를 통해 목록을 조회 할 수 있습니다.
+
+```zsh
+git config --list
+```
+
+> `--local` 또는 `--global` 옵션을 넣어 조회도 가능합니다.
+
 ### 명령어 간단하게 사용하기 [alias]
 
-`alias`를 사용하여 명령어를 설정파일에 등록하면 별칭으로 사용할 수 있습니다.
+`git config --global alias` 명령어를 사용하면 별칭으로 사용할 수 있습니다.
+
+```zsh
+git config --global alias.<별칭> <명령어>
+```
+
+> `--global` 옵션을 붙여주지 않으면 **해당 프로젝트에만 적용**되므로, 한번 설정해두고 계속 사용하고 싶다면 `--global` 옵션을 꼭 붙여줍니다.
+
+- 제가 사용하는 `alias` 입니다.
 
 ```zsh
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.st status
+git config --global alias.unstage 'restore --staged'
 git config --global alias.lg log
 ```
 
-> `--global` 옵션을 붙여주지 않으면 해당 프로젝트에만 적용이 되므로, 한번 설정해두고 계속 사용하고 싶다면 `--global` 옵션을 꼭 붙여줍니다.
+### name, email 설정
+
+`name`과 `email`은 `commit`시에 `Author` 부분에 기록됩니다.
+
+```zsh
+Author: <name> <email>
+```
+
+`git config --global`을 통해 전체적으로 설정을 해두면 각 프로젝트 마다 따로 설정을 하지 않아도 해당 정보를 사용합니다.
+
+```zsh
+git config --global user.name <name>
+git config --global user.email <email>
+```
+
+> 단, 여러개의 계정을 사용한다면 각 프로젝트마다 설정을 해줘야 하기떄문에
+> 자주 사용하는 것을 `global`에 설정을 하고, 다른 계정을 사용하는 특정 프로젝트에만 `local`에 정보를 등록하여 사용하면 됩니다.
 
 ---
 
