@@ -178,6 +178,48 @@ git log --graph --all --pretty=format:'%C(yellow)🕰 %ad | %C(green)# %h | %C(b
 
 ![Git Log pretty 설정](../../public/_posts/Git/Git_사용법/log_screenshot.png)
 
+### push
+
+`git push <remote> <branch>` 명령어를 통해 `GitHub(원격 저장소)`에 커밋 기록을 올릴 수 있습니다.
+
+- `-u | --set-upstream`: `-u`옵션을 붙여서 한 번 `push`하게 되면, 이후에는 `git push`만 입력해도 `-u`옵션을 붙였을 때의 `remote`와 `branch`로 `push`
+  됩니다.
+- `-f | --force`: `GitHub(원격 저장소)`의 커밋 기록을 무시하고 현재 로컬에서의 커밋 기록을 강제로 `push`합니다.
+	- 한 번 내역이 사라져버리면 되돌릴수 없기 때문에, 자신만의 `branch`에서만 사용하는 것이 좋습니다. **(매우 주의)**
+
+```zsh
+git push origin main
+```
+
+`origin`은 위에 `remote` 설정에서 사용한 `alias`이며, `alias`대신 주소를 풀로 적어도 됩니다.  
+`main`은 `GitHub`에서 `Repository`생성 시, 기본적으로 생성되는 `branch`입니다.
+
+> `push` 전에 `pull`을 받아 커밋 기록 동기화하지 않으면 충돌이 날 수 있으므로, 꼭 `pull`을 한 뒤, `push`를 해야합니다.
+
+### pull
+
+`git pull <remote> <branch>` 명령어를 통해 `GitHub(원격 저장소)`의 커밋 기록을 받아와 현재 내용과 `병합`합니다.
+
+- `-u | --set-upstream`: `-u`옵션을 붙여서 한 번 `pull`하게 되면, 이후에는 `git pull`만 입력해도 `-u`옵션을 붙였을 때의 `remote`와 `branch`로 `pull`
+  됩니다.
+- `-f | --force`: 로컬의 커밋 기록을 무시하고 `GitHub(원격 저장소)`에서의 커밋 기록으로 강제로 `pull`합니다.
+	- 한 번 내역이 사라져버리면 되돌릴수 없기 때문에, 주의해서 사용 해야 합니다. **(매우 주의)**
+
+```zsh
+git pull origin main
+```
+
+`origin`은 위에 `remote` 설정에서 사용한 `alias`이며, `alias`대신 주소를 풀로 적어도 됩니다.  
+`main`은 `GitHub`에서 `Repository`생성 시, 기본적으로 생성되는 `branch`입니다.
+
+### fetch
+
+`git fetch <remote> <branch>` 명령어를 통해 `GitHub(원격 저장소)`의 커밋 기록을 받아옵니다.
+
+`pull` 명령어와 유사하지만, 차이점은 기록은 받아오지만 현재 내용과 `병합`하지 않는다는 점입니다.
+
+> 내려받아서 조금 더 신중하게 변경 사항 확인 후 `병합` 하고 싶을 때 사용합니다.
+
 ## Git 설정
 
 전체적인 설정 파일은 `root`에 `.gitconfig` 파일에 기록됩니다.
