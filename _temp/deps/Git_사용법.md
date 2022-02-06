@@ -69,7 +69,7 @@ updatedAt:
 
 ## Git 명령어
 
-### 폴더를 Git 저장소로 지정 [init]
+### init
 
 `git init` 명령어 입력하면 `Git 저장소`로 지정됩니다. `Git 저장소`로 지정되면 `.git` 폴더가 생성되고 여기에 `git history`가 쌓이게 됩니다.
 
@@ -77,14 +77,14 @@ updatedAt:
 
 > `Git` 명령어는 `Git 저장소` 내에서만 사용이 가능합니다.
 
-### GitHub(원격저장소) Repository 지정하기 [remote]
+### remote
 
 - `git remote add <alias> <HTTPS | SSH>`: `GitHub(원격저장소)` `Repository`를 지정할 수 있습니다.
 	- 추후 `git push <alias> <branch>` 명령어를 통해 `GitHub(원격저장소)`에 파일을 등록할 수 있습니다.
 - `git remote remove <alias>`: 해당 `GitHub(원격저장소)` `Repository`에 대한 정보를 삭제합니다.
 - `git remote -v | --verbose`: 현재 등록된 `GitHub(원격저장소)` 정보를 볼 수 있습니다.
 
-### GitHub(원격저장소) Repository 내려받기 [clone]
+### clone
 
 `git clone <HTTPS | SSH> [폴더 명]` 명령어를 통해 `GitHub(원격저장소)` `Repository`를 내려받을 수 있습니다.
 
