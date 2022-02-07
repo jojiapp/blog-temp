@@ -38,4 +38,5 @@ yarn-error.log*
 
 # custom
 *.lock
+*-lock.json
 .idea
