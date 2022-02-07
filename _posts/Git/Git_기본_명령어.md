@@ -1,71 +1,13 @@
 ---
-description: 가장 많이 사용되고 있는 VCS(버전 관리 시스템)인 Git의 사용법에 대해 알아보겠습니다.  
-createdAt:  
-updatedAt:
+description: 가장 많이 사용되고 있는 VCS(버전 관리 시스템)인 Git의 기본 명령어에 대해 알아보겠습니다.  
+createdAt: 2022-02-04  
+updatedAt: 2022-02-04
 ---
 
-> 가장 많이 사용되고 있는 VCS(버전 관리 시스템)인 Git의 사용법에 대해 알아보겠습니다
+> 가장 많이 사용되고 있는 VCS(버전 관리 시스템)인 Git의 기본 명령어에 대해 알아보겠습니다
 >
 > `Git`은 `Bash`를 통한 `CLI` 환경과 `SourceTree`, `Gitkraken`등을 사용한 `GUI` 환경이 있습니다.  
 > 이번 포스터에서는 `Bash`를 통한 `CLI` 환경에서의 사용법을 알아보겠습니다.
-
-## Git Lifecycle
-
-우선 명령어를 알아보기 이전에 `Git`이 어떻게 파일을 관리하는지 `Lifecycle`부터 먼저 알아보겠습니다.
-
-![Git Lifecycle](../../public/_posts/Git/Git_사용법/lifecycle_screenshot1.png)
-> 출처: [2.2 Git의 기초 - 수정하고 저장소에 저장하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%88%98%EC%A0%95%ED%95%98%EA%B3%A0-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0)
-
-`Git`은 크게 2가지 상태로 나뉩니다.
-
-- `Untracked`: `Git`이 **관리(추적)하지 않는 상태**
-- `Tracked`: `Git`이 **관리(추적)중인 상태**
-
-여기서 `Tracked`는 또 3가지 상태로 나뉩니다.
-
-- `Unmodified`: `commit`이후 **변경 되지 않은 상태**
-- `Modified`: `commit`이후 **변경이 일어난 상태**
-- `Staged`: `commit`이 **가능한 상태**
-
-### Untracked
-
-`Untracked` 상태는 한번도 `Staged` 상태에서 `commit`된 적이 없었던 파일로, 대부분 새로운 파일 생성 시 나타나는 상태입니다.
-
-![Git Untracked](../../public/_posts/Git/Git_사용법/lifecycle_screenshot2.png)
-
-`git add` 명령어를 통해 `Staged` 상태로 변경할 수 있습니다.
-
-![Git Untracked Add](../../public/_posts/Git/Git_사용법/lifecycle_screenshot3.png)
-
-### Unmodified
-
-`Unmodified` 상태는 `commit` 이후 변경 된 사항이 없는 파일들을 의미합니다.
-
-### Modified
-
-`Modified` 상태는 `commit` 이후 변경 된 사항이 있는 파일을 의미합니다.
-
-`수정함`이라고 쓰여있는 곳이 `commit` 이후 변경 사항이 생긴 파일입니다.
-
-![Git Modified](../../public/_posts/Git/Git_사용법/lifecycle_screenshot4.png)
-
-`git add` 명령어를 통해 `Staged` 상태로 변경할 수 있습니다.
-
-![Git Modified Add](../../public/_posts/Git/Git_사용법/lifecycle_screenshot5.png)
-
-`git add` 명령어를 통해 `Staged` 상태로 변경된 파일을 또 한 번 변경 후, 상태를 확인해보면 `Staged` 상태와 `Modified` 2가지 상태로 공존합니다.
-
-`Staged` 상태에 있는 파일과 `Modified` 상태에 있는 파일은 내용이 다른 파일로, `commit`시 `Staged` 상태에 있는 파일이 `commit` 됩니다.
-
-![Git Modified Staged](../../public/_posts/Git/Git_사용법/lifecycle_screenshot6.png)
-
-### Staged
-
-`Staged` 상태는 `commit`이 가능한 파일들을 의미합니다.
-
-`Untracked` 상태 및 `Modified` 상태인 파일들을 `git add` 명령어를 통해 `Staged` 상태로 만들 수 있습니다.
-
-`Staged` 상태인 파일들만 `commit`됩니다.
 
 ## Git 명령어
 
@@ -91,7 +33,7 @@ updatedAt:
 - `[폴더 명]`: 생략 시, 현재 폴더 안에 `Repository` 명으로 폴더가 생성되며 해당 폴더 안에 파일들이 받아집니다.
 - `[폴더 명]` 자리에 `.` 입력 시, 해당 폴더에 파일들이 받아집니다.
 
-![GitHub Clone](../../public/_posts/Git/Git_사용법/screenshot1.png)
+![GitHub Clone](../../public/_posts/Git/Git_기본_명령어/screenshot1.png)
 
 `SSH`의 경우 [GitHub(원격저장소)에 SSH 연결 작업](/_posts/Git/GitHub_SSH_연결)을 한 뒤, 사용 할 수 있습니다.
 
@@ -147,37 +89,6 @@ updatedAt:
 	- `0am`처럼 입력 시, `당일 12am` 부터 커밋 기록을 보여줍니다.
 	- `--since="2022-02-06 00:00:00"` 또는 `--since="12am"` 처럼 사용할 수 있습니다.
 
-#### 이쁘게 출력하기 위한 옵션
-
-- `--graph`: `commit`된 내역들의 그래프를 확인 할 수 있습니다.
-- `--all`: 다른 브랜치의 커밋 기록까지 보여줍니다.
-- `--date`: `short`를 사용하면 `yyyy-MM-dd`형식으로 날짜를 볼 수 있습니다.
-- `--pretty=<값>`: 로그를 이쁘게 보기 위해 사용합니다. 단독으로 사용되지는 않고 뒤에 값을 입력해주어야 합니다. `short` `full` `fuller`와 같은 옵션이 있지만 `format`을
-  사용하여 원하는대로 설정이 가능하기 때문에 `format`를 많이 사용합니다.
-	- `format:<값>`
-		- `%h`: 짧은 커밋 해시
-		- `%d`: branch 정보
-		- `%an`: Author 이름
-		- `%ae`: Author 이메일
-		- `%ad`: 절대 날짜
-		- `%ar`: 상대 날짜
-		- `%s`: 커밋 내용
-		- `%C(<색상>)`: 색상 변경
-			- 색상은 `red` `green` `blue` `white`만 사용가능하며 `reset`은 값을 초기화합니다.
-			- `bold`를 사용하여 진하게 표시할 수 있습니다.
-			- 터미널 설정에 따라, 보여지는 색은 조금씩 상이할 수 있습니다.
-		- 그 외
-		  옵션은 [2.3 Git의 기초 - 커밋 히스토리 조회하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%BB%A4%EB%B0%8B-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0)
-		  참고
-
-위의 내용을 바탕으로 저만의 `log`를 만들어 봤습니다.
-
-```zsh
-git log --graph --all --pretty=format:'%C(yellow)🕰 %ad | %C(green)# %h | %C(bold white)𝑻 %s%C(reset) >>> %C(blue)[%an] %C(yellow)%ar%C(red)%d' --date=short
-```
-
-![Git Log pretty 설정](../../public/_posts/Git/Git_사용법/log_screenshot.png)
-
 ### push
 
 `git push <remote> <branch>` 명령어를 통해 `GitHub(원격 저장소)`에 커밋 기록을 올릴 수 있습니다.
@@ -220,67 +131,8 @@ git pull origin main
 
 > 내려받아서 조금 더 신중하게 변경 사항 확인 후 `병합` 하고 싶을 때 사용합니다.
 
-## Git 설정
-
-전체적인 설정 파일은 `root`에 `.gitconfig` 파일에 기록됩니다.
-
-> `local` 설정을 먼저 사용하고, 없으면 `global` 설정을 사용합니다. (`local > global`)
-
-### Config 목록 조회
-
-`git config --list` 명령어를 통해 목록을 조회 할 수 있습니다.
-
-```zsh
-git config --list
-```
-
-> `--local` 또는 `--global` 옵션을 넣어 조회도 가능합니다.
-
-### alias 설정
-
-`git config --global alias` 명령어를 사용하면 별칭으로 사용할 수 있습니다.
-
-```zsh
-git config --global alias.<별칭> <명령어>
-```
-
-> `--global` 옵션을 붙여주지 않으면 **해당 프로젝트에만 적용**되므로, 한번 설정해두고 계속 사용하고 싶다면 `--global` 옵션을 꼭 붙여줍니다.
-
-- 제가 사용하는 `alias` 입니다.
-
-```zsh
-git config --global alias.co checkout
-git config --global alias.br branch
-git config --global alias.ci commit
-git config --global alias.st status
-git config --global alias.unstage 'restore --staged'
-git config --global alias.today 'lg --since="12am"'
-git config --global alias.rollback 'reset @^'
-git config --global alias.lg "log --graph --all --pretty=format:'%C(yellow)🕰 %ad | %C(green)# %h | %C(bold white)𝑻 %s%C(reset) >>> %C(blue)[%an] %C(yellow)%ar%C(red)%d' --date=short"
-```
-
-### name, email 설정
-
-`name`과 `email`은 `commit`시에 `Author` 부분에 기록됩니다.
-
-```zsh
-Author: <name> <email>
-```
-
-`git config --global`을 통해 전체적으로 설정을 해두면 각 프로젝트 마다 따로 설정을 하지 않아도 해당 정보를 사용합니다.
-
-```zsh
-git config --global user.name <name>
-git config --global user.email <email>
-```
-
-> 단, 여러개의 계정을 사용한다면 각 프로젝트마다 설정을 해줘야 하기떄문에
-> 자주 사용하는 것을 `global`에 설정을 하고, 다른 계정을 사용하는 특정 프로젝트에만 `local`에 정보를 등록하여 사용하면 됩니다.
-
 ---
 
 ## 참고 사이트
 
 - [2.2 Git의 기초 - 수정하고 저장소에 저장하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%88%98%EC%A0%95%ED%95%98%EA%B3%A0-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0)
-- [2.3 Git의 기초 - 커밋 히스토리 조회하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%BB%A4%EB%B0%8B-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0)
-- [2.7 Git의 기초 - Git Alias](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-Git-Alias)
