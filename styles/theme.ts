@@ -1,9 +1,15 @@
 interface DefaultTheme {
-  pointColor: string;
-
+  color: {
+    point: string,
+    gray: string,
+    lightGray: string
+  };
 }
 
 export const theme: DefaultTheme = {
-  pointColor: "182F43"
-
+  color: {
+    point: '#182F43',
+    gray: '#93939D',
+    lightGray: '#FCFCFC',
+  },
 };
