@@ -17,7 +17,7 @@ function MyApp({Component, pageProps}: AppProps) {
 }
 
 const Container = styled.div`
-  width: 111rem;
+  max-width: 111rem;
   margin: 0 auto;
 `;
 

@@ -4,9 +4,9 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
 
   :root {
-    --point_color: ${({theme}) => theme.color.point}
-    --gray: ${({theme}) => theme.color.gray}
-    --light_gray: ${({theme}) => theme.color.lightGray}
+    --point: ${({theme}) => theme.color.point};
+    --gray: ${({theme}) => theme.color.gray};
+    --light_gray: ${({theme}) => theme.color.lightGray};
   }
 
   html, body {
@@ -22,6 +22,13 @@ const GlobalStyle = createGlobalStyle`
   button, a {
     all: unset;
     cursor: pointer;
+    color: var(--point);
+  }
+
+  input {
+    outline: none;
+    border: none;
+    padding: 1rem 1rem 1rem 1.5rem;
   }
 `;
 export default GlobalStyle;
