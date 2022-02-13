@@ -1,16 +1,14 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import HeaderLogo from './headerLogo/HeaderLogo';
-import HeaderBlogMove from './headerBlogMove/HeaderBlogMove';
+import HeaderLogo from './headerLogo';
+import HeaderBlogArea from './headerBlogArea';
 
 const Header = () => (
     <Container>
       <HeaderLogo />
-      <HeaderBlogMove />
+      <HeaderBlogArea />
     </Container>
 );
-
-export default Header;
 
 // === Styled === //
 
@@ -22,3 +20,5 @@ const Container = styled.header`
   align-items: center;
   box-sizing: content-box;
 `;
+
+export default Header;

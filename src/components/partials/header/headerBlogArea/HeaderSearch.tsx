@@ -17,8 +17,6 @@ const HeaderSearch = () => {
       </Wrapper>);
 };
 
-export default HeaderSearch;
-
 // === Styled === //
 
 const Wrapper = styled.div`
@@ -39,3 +37,5 @@ const IconBox = styled.div`
   color: var(--point);
   cursor: pointer;
 `;
+
+export default HeaderSearch;

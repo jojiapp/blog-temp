@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import HeaderSearch from './HeaderSearch';
 import HeaderBlogButton from './HeaderBlogButton';
 
-const HeaderBlogMove = () => (
+const HeaderBlogArea = () => (
     <BlogMoveWrapper>
       <HeaderSearch />
       <HeaderBlogButton />
     </BlogMoveWrapper>
 );
 
-export default HeaderBlogMove;
-
 // === Styled === //
 
 export const BlogMoveWrapper = styled.div`
   display: flex;
 `;
+
+export default HeaderBlogArea;

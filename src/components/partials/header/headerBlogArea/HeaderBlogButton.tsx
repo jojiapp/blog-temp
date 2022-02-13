@@ -8,20 +8,20 @@ const blogLink = '/blog';
 
 const HeaderBlogButton = () => (
     <Link href={blogLink}>
-      <Box>
-        <Text>기술 블로그</Text>
-        <IconBox>
-          <FontAwesomeIcon icon={faAngleRight} />
-        </IconBox>
-      </Box>
+      <a>
+        <Box>
+          <Text>기술 블로그</Text>
+          <IconBox>
+            <FontAwesomeIcon icon={faAngleRight} />
+          </IconBox>
+        </Box>
+      </a>
     </Link>
 );
 
-export default HeaderBlogButton;
-
 // === Styled === //
 
-const Box = styled.a`
+const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,3 +41,5 @@ const IconBox = styled.div`
   font-size: 1.6rem;
   color: var(--point);
 `;
+
+export default HeaderBlogButton;

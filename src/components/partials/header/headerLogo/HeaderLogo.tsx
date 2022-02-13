@@ -10,8 +10,6 @@ const HeaderLogo = () => (
     </Link>
 );
 
-export default HeaderLogo;
-
 // === Styled === //
 
 const LogoBox = styled.div`
@@ -19,3 +17,5 @@ const LogoBox = styled.div`
   font-weight: bold;
   color: var(--point);
 `;
+
+export default HeaderLogo;

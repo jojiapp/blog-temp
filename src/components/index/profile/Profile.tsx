@@ -1,31 +1,19 @@
-import {
-  InfoContainer,
-  ProfileContainer,
-  ProfileImage,
-  ProfileImageBox,
-} from './ProfileStyled';
-import {ProfileInfo} from './ProfileInfo';
-
-const profileInfo = ProfileInfo.getInstance();
+import styled from 'styled-components';
+import ProfileImage from './profileImage';
+import ProfileInfo from './profileInfo';
 
 const Profile = () => (
     <ProfileContainer>
-      <ImageBox />
-      <Info />
+      <ProfileImage />
+      <ProfileInfo />
     </ProfileContainer>
 );
 
-const ImageBox = () => (
-    <ProfileImageBox>
-      <ProfileImage src={profileInfo.getImageSrc()} />
-    </ProfileImageBox>
-);
+// === Styled === //
 
-const Info = () => (
-    <InfoContainer>
-
-      {profileInfo.getName()}
-    </InfoContainer>
-);
+const ProfileContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 export default Profile;
