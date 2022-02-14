@@ -3,15 +3,15 @@ import ProfileImage from './profileImage';
 import ProfileInfo from './profileInfo';
 
 const Profile = () => (
-    <ProfileContainer>
+    <Container>
       <ProfileImage />
       <ProfileInfo />
-    </ProfileContainer>
+    </Container>
 );
 
 // === Styled === //
 
-const ProfileContainer = styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
 `;

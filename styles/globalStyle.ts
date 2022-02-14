@@ -12,6 +12,8 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     font-size: 10px !important;
     height: 100%;
+    color: var(--point);
+    word-break: keep-all;
   }
 
   ${reset}
