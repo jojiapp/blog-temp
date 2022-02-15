@@ -1,8 +1,10 @@
 ---
 description: IntelliJ에서 Code Style을 설정하여 일관된 코드 스타일 유지하기.  
 createdAt: 2022-01-23  
-updatedAt: 2022-01-23C
+updatedAt: 2022-01-23
 ---
+
+# [IntelliJ] Code Style 설정
 
 > 혼자서 개발을 진행 할 때는 들여쓰기가 2개든 4개든 상관이 없습니다. 하지만, 여러 명에서 같이 작업을 하게 된다면 문제가 됩니다.
 >
@@ -20,7 +22,7 @@ updatedAt: 2022-01-23C
 
 저는 `Kotlin`을 사용하고 있기 때문에 `Kotlin`을 적용하지만, 다른 언어들도 동일하게 적용하면 됩니다.
 
-- Preference -> Editor -> Code Style -> Kotlin -> Set From -> Kotlin style guide
+- `Preference` -> `Editor` -> `Code Style` -> `Kotlin` -> `Set From` -> `Kotlin style guide`
 
 > **Kotlin style guide**: [Kotlin 공식 사이트](https://kotlinlang.org/docs/coding-conventions.html) 에서 제공하는 컨벤션 입니다.
 

@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
+const title = `I've been doing this for a while.`
+const description = "이러쿵 저러쿵 그러쿵 이러쿵 저러쿵 그러쿵 이러쿵 저러쿵 그러쿵"
+
 const HistoryTitle = () => (
     <Container>
-      <Title>{'I\'ve'} been doing this for a while.</Title>
-      <Description>이러쿵 저러쿵 그러쿵 이러쿵 저러쿵 그러쿵 이러쿵 저러쿵 그러쿵</Description>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
     </Container>
 );
 

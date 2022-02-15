@@ -4,12 +4,10 @@ createdAt: 2022-02-01
 updatedAt: 2022-02-01
 ---
 
+# [Git] Lifecycle
+
 > Git을 제대로 이해하고 사용하기 위해서는 Lifecycle에 대해서 제대로 이해하고 있어야 합니다.  
 > 어딜가도 사용하고 있는 Git의 Lifecycle을 제대로 알아봅시다.
-
-## Git Lifecycle
-
-우선 명령어를 알아보기 이전에 `Git`이 어떻게 파일을 관리하는지 `Lifecycle`부터 먼저 알아보겠습니다.
 
 ![Git Lifecycle](../../public/_posts/Git/Git_Lifecycle/lifecycle_screenshot1.png)
 > 출처: [2.2 Git의 기초 - 수정하고 저장소에 저장하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%88%98%EC%A0%95%ED%95%98%EA%B3%A0-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0)
@@ -25,7 +23,7 @@ updatedAt: 2022-02-01
 - `Modified`: `commit`이후 **변경이 일어난 상태**
 - `Staged`: `commit`이 **가능한 상태**
 
-### Untracked
+## Untracked
 
 `Untracked` 상태는 한번도 `Staged` 상태에서 `commit`된 적이 없었던 파일로, 대부분 새로운 파일 생성 시 나타나는 상태입니다.
 
@@ -35,11 +33,11 @@ updatedAt: 2022-02-01
 
 ![Git Untracked Add](../../public/_posts/Git/Git_Lifecycle/lifecycle_screenshot3.png)
 
-### Unmodified
+## Unmodified
 
 `Unmodified` 상태는 `commit` 이후 변경 된 사항이 없는 파일들을 의미합니다.
 
-### Modified
+## Modified
 
 `Modified` 상태는 `commit` 이후 변경 된 사항이 있는 파일을 의미합니다.
 
@@ -57,7 +55,7 @@ updatedAt: 2022-02-01
 
 ![Git Modified Staged](../../public/_posts/Git/Git_Lifecycle/lifecycle_screenshot6.png)
 
-### Staged
+## Staged
 
 `Staged` 상태는 `commit`이 가능한 파일들을 의미합니다.
 

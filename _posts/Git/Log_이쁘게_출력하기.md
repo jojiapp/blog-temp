@@ -4,15 +4,13 @@ createdAt: 2022-02-05
 updatedAt: 2022-02-05
 ---
 
+# [Git] Log 이쁘게 출력하기
+
 > Git을 사용하다 보면 Log는 굉장히 많이 보게 됩니다. 기본적으로 설정되어 있는 Log는 여러개를 한꺼번에 보기엔 가독성이 좋지 않습니다.
 >
 > 한 눈에 보기 쉽게 만들어 보겠습니다. (+ 나만의 Log )
 
-## Log
-
-설정을 하는 것도 중요하지만, 어떤 옵션이 어떤 역할을 하는지 이해해야 `나만의 Log`를 만들기 쉽기때문에 옵션에 대해 먼저 알아보겠습니다.
-
-### 이쁘게 출력하기 위한 옵션
+## 이쁘게 출력하기 위한 옵션
 
 - `--graph`: `commit`된 내역들의 그래프를 확인 할 수 있습니다.
 - `--all`: 다른 브랜치의 커밋 기록까지 보여줍니다.
@@ -43,7 +41,7 @@ git log --graph --all --pretty=format:'%C(yellow)🕰 %ad | %C(green)# %h | %C(b
 
 ![Git Log pretty 설정](../../public/_posts/Git/Git_기본_명령어/log_screenshot.png)
 
-### alias
+## alias
 
 `global`하게 설정해두면 매번 위 처럼 길게 적지 않아도 `git lg` 처럼 간략하게 사용할 수 있습니다. (`alias`는 `lg`가 아니여도 됩니다.)
 

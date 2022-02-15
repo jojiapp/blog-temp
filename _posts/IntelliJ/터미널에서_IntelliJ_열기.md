@@ -4,6 +4,8 @@ createdAt: 2022-01-21
 updatedAt: 2022-01-21
 ---
 
+# [IntelliJ] 터미널에서 IntelliJ 열기
+
 > IntelliJ를 앱을 직접 클릭하여 열기 보다 조금 더 프로그래머(?)스럽게 Command Line으로 IntelliJ를 실행 하는 방법을 알아보겠습니다.
 
 ## ToolBox 설치
