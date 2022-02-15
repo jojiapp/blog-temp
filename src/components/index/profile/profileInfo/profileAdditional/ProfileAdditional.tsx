@@ -1,19 +1,17 @@
-import ProfileInfoVo from '../../ProfileInfoVo';
-import ProfileAdditionalItem from './ProfileAdditionalItem';
-import {nanoid} from 'nanoid';
+import ProfileInfoVo from '../../profileInfoVo'
+import ProfileAdditionalItem from './ProfileAdditionalItem'
+import { nanoid } from 'nanoid'
+import { ProfileInfoProps } from '../ProfileInfo'
 
-const profileInfoVo = ProfileInfoVo.getInstance();
+const ProfileAdditional = ({ profileInfoVo }: ProfileInfoProps) => (
+  <ul>
+    {profileInfoVo.getAdditionalInfos().map(additionalInfo =>
+      <ProfileAdditionalItem
+        key={nanoid()}
+        additionalInfo={additionalInfo}
+      />)
+    }
+  </ul>
+)
 
-const ProfileAdditional = () => (
-    <ul>
-      {profileInfoVo.getAdditionalInfos().
-          map(additionalInfo =>
-              <ProfileAdditionalItem
-                  key={nanoid()}
-                  additionalInfo={additionalInfo}
-              />)
-      }
-    </ul>
-);
-
-export default ProfileAdditional;
+export default ProfileAdditional

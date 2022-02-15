@@ -1,3 +1,3 @@
-import HistoryTitle from './HistoryTitle';
+import HistoryTitle from './HistoryTitle'
 
-export default HistoryTitle;
+export default HistoryTitle

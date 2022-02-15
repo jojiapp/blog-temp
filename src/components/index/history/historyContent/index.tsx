@@ -1,3 +1,3 @@
-import HistoryContent from './HistoryContent';
+import HistoryContent from './HistoryContent'
 
-export default HistoryContent;
+export default HistoryContent
