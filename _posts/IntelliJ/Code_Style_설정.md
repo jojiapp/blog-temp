@@ -1,7 +1,7 @@
 ---
 description: IntelliJ에서 Code Style을 설정하여 일관된 코드 스타일 유지하기.  
 createdAt: 2022-01-23  
-updatedAt: 2022-01-23
+updatedAt: 2022-02-16
 ---
 
 # [IntelliJ] Code Style 설정
@@ -29,6 +29,35 @@ updatedAt: 2022-01-23
 ![Kotlin Code Style 설정](../../public/_posts/IntelliJ/Code_Style_설정/screenshot1.png)
 
 **Auto Formatting**(`option + command + L`)을 해보면 적용 된 걸 알 수 있습니다.
+
+### Kotlin 추가 스타일 적용
+
+`Preference` -> `Editor` -> `Code Style` -> `Kotlin` -> `Wrapping and Braces` 에서 추가적으로 원하는 스타일을 적용 할 수 있습니다.
+
+저는 `Align 'when' branches in columns`를 체크 하였습니다.
+
+```kotlin
+val a = "a"
+
+when (a) {
+	"a"      -> println("a")
+	"abcabc" -> println("b")
+}
+```
+
+- 위와 같이 `->`의 위치를 일정하게 만들어 줍니다.
+
+![Kotlin Code Style 추가 스타일 적용](../../public/_posts/IntelliJ/Code_Style_설정/screenshot3.png)
+
+### Java 추가 스타일 적용
+
+`Preference` -> `Editor` -> `Code Style` -> `Java` -> `Wrapping and Braces` 에서 추가적으로 원하는 스타일을 적용 할 수 있습니다.
+
+`Java`의 경우 `Simple ~~~` 되어 있는 부분을 다 체크 했습니다.
+
+간단한 한줄 짜리 코드 일 경우 줄 한 줄로 나타나게 하는 옵션 입니다.
+
+![Java Code Style 추가 스타일 적용](../../public/_posts/IntelliJ/Code_Style_설정/screenshot4.png)
 
 ## Auto Formatting 전에 잘못 된 부분 확인하기
 
@@ -87,6 +116,21 @@ Waring 보다 더 강력하게 확인하기 위해서 Error로 변경하려면 `
 ![Code Style 설정 macros 설정 키 매핑](../../public/_posts/IntelliJ/Code_Style_설정/macros_설정_screenshot4.png)
 
 이후, `저장(command + S)`를 해보면 **Auto Formatting** 후 **저장**이 됩니다.
+
+## Inlay Hints (꿀팁)
+
+`Inlay Hints`를 사용하면 어떤 파라미터 값을 넘겨야하는지 같은 힌트를 볼 수 있습니다.
+
+`Preferences` -> `Editor` -> `Code Style` -> `Inlay Hints` -> `Kotlin`
+
+![Inlay Hints Kotlin 설정](../../public/_posts/IntelliJ/Code_Style_설정/inlay_hints1.png)
+
+### 자바에서 유용한 옵션
+
+`Usages` 옵션을 체크하면 해당 코드가 어디에 얼마나 쓰이고 있는지 알려주며, 클릭 시 사용중인 파일 목록을 보여줍니다.
+
+![Inlay Hints Java Usages 설정](../../public/_posts/IntelliJ/Code_Style_설정/inlay_hints2.png)
+![Inlay Hints Java Usages 설정 확인](../../public/_posts/IntelliJ/Code_Style_설정/inlay_hints3.png)
 
 ---
 
