@@ -2,14 +2,14 @@ import styled from 'styled-components'
 import { ProfileInfoProps } from './ProfileInfo'
 
 const ProfileInfoDescription = ({ profileInfoVo }: ProfileInfoProps) => (
-  <Description>
+  <DescriptionText>
     {profileInfoVo.getDescription()}
-  </Description>
+  </DescriptionText>
 )
 
 // === Styled === //
 
-const Description = styled.div`
+const DescriptionText = styled.div`
   font-size: 1.6rem;
   color: var(--gray);
   margin-bottom: 4rem;

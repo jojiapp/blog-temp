@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderLogo from './headerLogo';
-import HeaderBlogArea from './headerBlogArea';
+import HeaderLogo from './HeaderLogo';
+import HeaderBlogArea from './HeaderBlogArea';
 
 const Header = () => (
     <Container>

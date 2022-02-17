@@ -3,25 +3,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import ProfileInfoVo from '../../profileInfoVo'
-import AdditionalInfo = ProfileInfoVo.AdditionalInfoVo
 
 type PropsType = {
-  additionalInfo: AdditionalInfo
+  additionalInfo: ProfileInfoVo.AdditionalInfoVo
 }
 
 const ProfileAdditionalItem = ({ additionalInfo }: PropsType) => (
-  <Box>
+  <Wrapper>
     <IconBox>
       <FontAwesomeIcon icon={faCircleCheck}/>
     </IconBox>
-    <Title>{additionalInfo.getTitle()} -</Title>
+    <TitleText>{additionalInfo.getTitle()} -</TitleText>
     {additionalInfo.getContent()}
-  </Box>
+  </Wrapper>
 )
 
 // === Styled === //
 
-const Box = styled.li`
+const Wrapper = styled.li`
   display: flex;
   align-items: center;
   font-size: 1.6rem;
@@ -36,7 +35,7 @@ const IconBox = styled.div`
   margin-right: 1rem;
 `
 
-const Title = styled.div`
+const TitleText = styled.div`
   font-weight: bold;
   margin-right: 0.5rem;
 `

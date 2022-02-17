@@ -1,6 +1,6 @@
+import ProfileImage from './ProfileImage'
+import ProfileInfo from './ProfileInfo'
 import styled from 'styled-components'
-import ProfileImage from './profileImage'
-import ProfileInfo from './profileInfo'
 
 const Profile = () => (
   <Container>

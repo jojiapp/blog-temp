@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import HistoryTitle from './historyTitle'
-import HistoryContent from './historyContent'
+import HistoryTitle from './HistoryTitle'
+import HistoryContent from './HistoryContent'
 
 const History = () => (
   <Container>

@@ -2,7 +2,7 @@ import type {AppProps} from 'next/app';
 import GlobalStyle from '../styles/globalStyle';
 import styled, {ThemeProvider} from 'styled-components';
 import {theme} from '../styles/theme';
-import Header from '../src/components/partials/header/Header';
+import Header from '../src/components/partials/Header/Header';
 
 function MyApp({Component, pageProps}: AppProps) {
   return (

@@ -1,6 +1,6 @@
 import type {NextPage} from 'next';
-import Profile from '../src/components/index/profile/Profile';
-import History from '../src/components/index/history';
+import Profile from '../src/components/index/Profile/Profile';
+import History from '../src/components/index/History';
 import styled from 'styled-components';
 
 const Home: NextPage = () => {
