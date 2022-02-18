@@ -3,10 +3,10 @@ import ProfileInfo from './ProfileInfo'
 import styled from 'styled-components'
 
 const Profile = () => (
-  <Container>
-    <ProfileImage/>
-    <ProfileInfo/>
-  </Container>
+	<Container>
+		<ProfileImage/>
+		<ProfileInfo/>
+	</Container>
 )
 
 // === Styled === //

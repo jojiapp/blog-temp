@@ -4,17 +4,17 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
 import styled from 'styled-components'
 
 const HeaderSearch = () => {
-  const searchInputRef = useRef<HTMLInputElement>(null)
-  const searchIconOnClick = () => {
-    console.log(searchInputRef.current?.value)
-  }
-  return (
-    <Wrapper>
-      <SearchInput placeholder={'Posts Search...'} ref={searchInputRef}/>
-      <IconBox onClick={searchIconOnClick}>
-        <FontAwesomeIcon icon={faSearch}/>
-      </IconBox>
-    </Wrapper>)
+	const searchInputRef = useRef<HTMLInputElement>(null)
+	const searchIconOnClick = () => {
+		console.log(searchInputRef.current?.value)
+	}
+	return (
+		<Wrapper>
+			<SearchInput placeholder={'Posts Search...'} ref={searchInputRef}/>
+			<IconBox onClick={searchIconOnClick}>
+				<FontAwesomeIcon icon={faSearch}/>
+			</IconBox>
+		</Wrapper>)
 }
 
 // === Styled === //

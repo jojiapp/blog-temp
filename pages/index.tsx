@@ -4,12 +4,12 @@ import History from '../src/components/index/History'
 import styled from 'styled-components'
 
 const Home: NextPage = () => {
-  return (
-    <Container>
-      <Profile/>
-      <History/>
-    </Container>
-  )
+	return (
+		<Container>
+			<Profile/>
+			<History/>
+		</Container>
+	)
 }
 
 // === Styled === //

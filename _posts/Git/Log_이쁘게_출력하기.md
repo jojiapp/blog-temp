@@ -17,21 +17,21 @@ updatedAt: 2022-02-05
 - `--date`: `short`를 사용하면 `yyyy-MM-dd`형식으로 날짜를 볼 수 있습니다.
 - `--pretty=<값>`: 로그를 이쁘게 보기 위해 사용합니다. 단독으로 사용되지는 않고 뒤에 값을 입력해주어야 합니다. `short` `full` `fuller`와 같은 옵션이 있지만 `format`을
   사용하여 원하는대로 설정이 가능하기 때문에 `format`를 많이 사용합니다.
-	- `format:<값>`
-		- `%h`: 짧은 커밋 해시
-		- `%d`: branch 정보
-		- `%an`: Author 이름
-		- `%ae`: Author 이메일
-		- `%ad`: 절대 날짜
-		- `%ar`: 상대 날짜
-		- `%s`: 커밋 내용
-		- `%C(<색상>)`: 색상 변경
-			- 색상은 `red` `green` `blue` `white`만 사용가능하며 `reset`은 값을 초기화합니다.
-			- `bold`를 사용하여 진하게 표시할 수 있습니다.
-			- 터미널 설정에 따라, 보여지는 색은 조금씩 상이할 수 있습니다.
-		- 그 외
-		  옵션은 [2.3 Git의 기초 - 커밋 히스토리 조회하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%BB%A4%EB%B0%8B-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0)
-		  참고
+    - `format:<값>`
+        - `%h`: 짧은 커밋 해시
+        - `%d`: branch 정보
+        - `%an`: Author 이름
+        - `%ae`: Author 이메일
+        - `%ad`: 절대 날짜
+        - `%ar`: 상대 날짜
+        - `%s`: 커밋 내용
+        - `%C(<색상>)`: 색상 변경
+            - 색상은 `red` `green` `blue` `white`만 사용가능하며 `reset`은 값을 초기화합니다.
+            - `bold`를 사용하여 진하게 표시할 수 있습니다.
+            - 터미널 설정에 따라, 보여지는 색은 조금씩 상이할 수 있습니다.
+        - 그 외
+          옵션은 [2.3 Git의 기초 - 커밋 히스토리 조회하기](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%BB%A4%EB%B0%8B-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0)
+          참고
 
 위의 내용을 바탕으로 저만의 `log`를 만들어 봤습니다.
 

@@ -3,9 +3,9 @@ import styled from 'styled-components'
 const profileImage = '/Profile/Profile-image.jpeg'
 
 const ProfileImage = () => (
-  <Container>
-    <ImageSource src={profileImage}/>
-  </Container>
+	<Container>
+		<ImageSource src={profileImage}/>
+	</Container>
 )
 
 // === Styled === //

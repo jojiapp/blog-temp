@@ -4,10 +4,10 @@ import HeaderLogo from './HeaderLogo'
 import HeaderBlogArea from './HeaderBlogArea'
 
 const Header = () => (
-  <Container>
-    <HeaderLogo/>
-    <HeaderBlogArea/>
-  </Container>
+	<Container>
+		<HeaderLogo/>
+		<HeaderBlogArea/>
+	</Container>
 )
 
 // === Styled === //

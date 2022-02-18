@@ -89,9 +89,9 @@ ssh-add -t 4w ~/.ssh/id_rsa_jojiapp # 위에서 생성한 SSH 개인키
 ```
 
 - `ssh-agent`에 개인키를 등록합니다.
-	- `-t` 옵션을 통해 기간을 설정 할 수 있으며, 기본 단위는 `초(second)`입니다.
-	- `분(m)`, `시(h)`, `일(d)`, `주(w)` 단위로 설정할 수 있습니다.
-	- 생략 시, 기본값은 무제한입니다.
+    - `-t` 옵션을 통해 기간을 설정 할 수 있으며, 기본 단위는 `초(second)`입니다.
+    - `분(m)`, `시(h)`, `일(d)`, `주(w)` 단위로 설정할 수 있습니다.
+    - 생략 시, 기본값은 무제한입니다.
 
 ```zsh
 Identity added: /Users/jojiapp/.ssh/id_rsa_jojiapp (jojiapp@gmail.com)

@@ -5,15 +5,15 @@ import { theme } from '../styles/theme'
 import Header from '../src/components/partials/Header/Header'
 
 function MyApp ({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle/>
-      <Container>
-        <Header/>
-        <Component {...pageProps} />
-      </Container>
-    </ThemeProvider>
-  )
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyle/>
+			<Container>
+				<Header/>
+				<Component {...pageProps} />
+			</Container>
+		</ThemeProvider>
+	)
 }
 
 // === Styled === //

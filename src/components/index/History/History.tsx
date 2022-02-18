@@ -3,10 +3,10 @@ import HistoryTitle from './HistoryTitle'
 import HistoryContent from './HistoryContent'
 
 const History = () => (
-  <Container>
-    <HistoryTitle/>
-    <HistoryContent/>
-  </Container>
+	<Container>
+		<HistoryTitle/>
+		<HistoryContent/>
+	</Container>
 )
 
 // ===  Styled === //

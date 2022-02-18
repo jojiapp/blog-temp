@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 type PropsType = {
-  detail: string
+	detail: string
 }
 
 const HistoryDetail = ({ detail }: PropsType) => (
-  <Box>
-    <span>-</span>
-    <span>{detail}</span>
-  </Box>
+	<Box>
+		<span>-</span>
+		<span>{detail}</span>
+	</Box>
 )
 
 // === Styled === //

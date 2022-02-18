@@ -5,17 +5,17 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import ProfileInfoVo from '../profileInfoVo'
 
 type PropsType = {
-  additionalInfoVo: ProfileInfoVo.AdditionalInfoVo
+	additionalInfoVo: ProfileInfoVo.AdditionalInfoVo
 }
 
 const ProfileAdditionalItem = ({ additionalInfoVo }: PropsType) => (
-  <Wrapper>
-    <IconBox>
-      <FontAwesomeIcon icon={faCircleCheck}/>
-    </IconBox>
-    <TitleText>{additionalInfoVo.getTitle()} -</TitleText>
-    {additionalInfoVo.getContent()}
-  </Wrapper>
+	<Wrapper>
+		<IconBox>
+			<FontAwesomeIcon icon={faCircleCheck}/>
+		</IconBox>
+		<TitleText>{additionalInfoVo.getTitle()} -</TitleText>
+		{additionalInfoVo.getContent()}
+	</Wrapper>
 )
 
 // === Styled === //

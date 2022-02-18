@@ -4,18 +4,18 @@ import { nanoid } from 'nanoid'
 import HistoryDetail from './HistoryDetail'
 
 type PropsType = {
-  historyWorkVo: HistoryCompanyVo.HistoryWorkVo
+	historyWorkVo: HistoryCompanyVo.HistoryWorkVo
 }
 
 const HistoryWork = ({ historyWorkVo }: PropsType) => (
-  <>
-    <WorkText>{historyWorkVo.getWork()}</WorkText>
-    <Details>
-      {historyWorkVo.getDetails().map(detail =>
-        <HistoryDetail key={nanoid()} detail={detail}/>
-      )}
-    </Details>
-  </>
+	<div>
+		<WorkText>{historyWorkVo.getWork()}</WorkText>
+		<Details>
+			{historyWorkVo.getDetails().map(detail =>
+				<HistoryDetail key={nanoid()} detail={detail}/>
+			)}
+		</Details>
+	</div>
 )
 
 // === Styled === //
