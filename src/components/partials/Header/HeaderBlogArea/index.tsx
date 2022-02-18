@@ -1,3 +1,3 @@
-import HeaderBlogArea from './HeaderBlogArea';
+import HeaderBlogArea from './HeaderBlogArea'
 
-export default HeaderBlogArea;
+export default HeaderBlogArea

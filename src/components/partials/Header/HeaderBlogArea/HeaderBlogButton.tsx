@@ -26,7 +26,6 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   color: var(--point);
-  font-size: 1.6rem;
   width: 14.6rem;
   height: 4.6rem;
   border: 1px var(--point) solid;
@@ -38,7 +37,6 @@ const Text = styled.span`
 `
 
 const IconBox = styled.div`
-  font-size: 1.6rem;
   color: var(--point);
 `
 

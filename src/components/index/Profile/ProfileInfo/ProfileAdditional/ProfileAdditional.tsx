@@ -7,7 +7,7 @@ const ProfileAdditional = ({ profileInfoVo }: ProfileInfoProps) => (
     {profileInfoVo.getAdditionalInfos().map(additionalInfo => (
       <ProfileAdditionalItem
         key={nanoid()}
-        additionalInfo={additionalInfo}
+        additionalInfoVo={additionalInfo}
       />)
     )}
   </ul>

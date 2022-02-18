@@ -1,22 +1,30 @@
-import {createGlobalStyle} from 'styled-components';
-import reset from 'styled-reset';
+import { createGlobalStyle } from 'styled-components'
+import reset from 'styled-reset'
 
 const GlobalStyle = createGlobalStyle`
 
   :root {
-    --point: ${({theme}) => theme.color.point};
-    --gray: ${({theme}) => theme.color.gray};
-    --light_gray: ${({theme}) => theme.color.lightGray};
-  }
-
-  html, body {
-    font-size: 10px !important;
-    height: 100%;
-    color: var(--point);
-    word-break: keep-all;
+    --point: ${({ theme }) => theme.color.point};
+    --gray: ${({ theme }) => theme.color.gray};
+    --light_gray: ${({ theme }) => theme.color.lightGray};
   }
 
   ${reset}
+  html, body {
+    min-height: 100%;
+    color: var(--point);
+    word-break: keep-all;
+    line-height: 2.6rem;
+  }
+
+  html {
+    font-size: 10px !important;
+  }
+
+  body {
+    font-size: 1.6rem !important;
+  }
+
   * {
     box-sizing: border-box;
   }
@@ -32,5 +40,5 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     padding: 1rem 1rem 1rem 1.5rem;
   }
-`;
-export default GlobalStyle;
+`
+export default GlobalStyle

@@ -11,7 +11,7 @@ const Profile = () => (
 
 // === Styled === //
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
   align-items: center;
 `
