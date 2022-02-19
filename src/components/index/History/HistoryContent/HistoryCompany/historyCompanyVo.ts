@@ -46,12 +46,20 @@ class HistoryCompanyVo {
 		return this._job
 	}
 
-	getStartDate (): Date {
-		return this._startDate
+	private _getFullMonth (month: number): string {
+		return (month > 10 ? month : `0${month}`).toString()
 	}
 
-	getEndDate (): Date {
-		return this._endDate
+	private _getDate (date: Date): string {
+		return `${date.getFullYear()}.${this._getFullMonth(date.getMonth())}`
+	}
+
+	getStartDate (): string {
+		return this._getDate(this._startDate)
+	}
+
+	getEndDate (): string {
+		return this._getDate(this._endDate)
 	}
 
 	getHistoryWorks (): HistoryCompanyVo.HistoryWorkVo[] {
