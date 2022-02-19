@@ -23,7 +23,7 @@ class HistoryCompanyVo {
 		company: string,
 		job: string,
 		startDate: Date,
-		endDate: Date,
+		endDate: Date | null,
 		historyWorks: HistoryCompanyVo.HistoryWorkVo[]) {
 		this._company = company
 		this._job = job
@@ -35,7 +35,7 @@ class HistoryCompanyVo {
 	private readonly _company: string
 	private readonly _job: string
 	private readonly _startDate: Date
-	private readonly _endDate: Date
+	private readonly _endDate: Date | null
 	private readonly _historyWorks: HistoryCompanyVo.HistoryWorkVo[]
 
 	getCompany (): string {
@@ -59,13 +59,12 @@ class HistoryCompanyVo {
 	}
 
 	getEndDate (): string {
-		return this._getDate(this._endDate)
+		return this._endDate === null ? '재직중' : this._getDate(this._endDate)
 	}
 
 	getHistoryWorks (): HistoryCompanyVo.HistoryWorkVo[] {
 		return this._historyWorks
 	}
-
 }
 
 namespace HistoryCompanyVo {

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import ProfileInfoVo, { getProfileInfo } from './profileInfoVo'
 import ProfileInfoTitle from './ProfileInfoTitle'
 import ProfileInfoDescription from './ProfileInfoDescription'
 import ProfileAdditional from './ProfileAdditional'
+import ProfileInfoVo from './profileInfoVo'
+import { getProfileInfo } from './profileInfoStaticValues'
 
 export type ProfileInfoProps = {
 	profileInfoVo: ProfileInfoVo
