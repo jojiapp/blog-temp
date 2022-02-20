@@ -37,7 +37,7 @@ const IconBox = styled.div<IconPropsType>`
   }
 `
 
-const LanguageText = styled.div`
+const LanguageText = styled.h3`
 
 `
 

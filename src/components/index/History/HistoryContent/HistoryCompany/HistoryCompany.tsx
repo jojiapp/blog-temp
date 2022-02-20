@@ -27,7 +27,7 @@ const HistoryCompany = ({ historyCompanyVo }: PropsType) => (
 
 // === Styled === //
 
-const Container = styled.div`
+const Container = styled.article`
   background-color: var(--light_gray);
   padding: 5rem;
   border-radius: 1rem;
