@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
 const Container = styled.div`
   & > section {
-    margin-bottom: 16rem;
+    min-height: 100vh;
   }
 `
 

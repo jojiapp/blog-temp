@@ -13,7 +13,7 @@ const Header = () => (
 // === Styled === //
 
 const Container = styled.header`
-  padding: 12rem 0 16rem;
+  padding-top: 12rem;
   height: 4.6rem;
   display: flex;
   justify-content: space-between;
