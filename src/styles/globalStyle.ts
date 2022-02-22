@@ -1,13 +1,19 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
+import globalColorStyle from './globalColorStyle'
 
 const GlobalStyle = createGlobalStyle`
 
   :root {
-    --point: ${({ theme }) => theme.color.point};
-    --gray: ${({ theme }) => theme.color.gray};
-    --light_gray: ${({ theme }) => theme.color.lightGray};
+    ${({ theme }) => globalColorStyle(theme)};
   }
+
+  @font-face {
+    font-family: 'Poppins-Regular';
+    src: url('/fonts/poppins/Poppins-Regular.ttf') format('ttf'), url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+    font-display: swap;
+  }
+  
 
   ${reset}
   html, body {
@@ -23,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-size: 1.6rem !important;
+    font-family: "Poppins-Regular", serif;
   }
 
   * {
@@ -41,4 +48,5 @@ const GlobalStyle = createGlobalStyle`
     padding: 1rem 1rem 1rem 1.5rem;
   }
 `
+
 export default GlobalStyle
