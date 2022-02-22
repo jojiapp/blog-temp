@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const profileImage = '/Profile/Profile-image.jpeg'
+const profileImage = '/profile/profile-image.jpeg'
 
 const ProfileImage = () => (
 	<Container>

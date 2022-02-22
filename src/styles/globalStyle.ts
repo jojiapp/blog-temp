@@ -1,20 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import globalColorStyle from './globalColorStyle'
+import globalFontStyle, { FontFamily, FontName, FontWeightName } from './globalFontStyle'
 
 const GlobalStyle = createGlobalStyle`
 
-  :root {
-    ${({ theme }) => globalColorStyle(theme)};
-  }
-
-  @font-face {
-    font-family: 'Poppins-Regular';
-    src: url('/fonts/poppins/Poppins-Regular.ttf') format('ttf'), url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
-    font-display: swap;
-  }
-  
-
+  ${({ theme }) => globalColorStyle(theme)} // Color 일괄 적용
+  ${globalFontStyle(FontName.NOTOSANSKR)} // 폰트 일괄 적용
   ${reset}
   html, body {
     min-height: 100%;
@@ -29,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-size: 1.6rem !important;
-    font-family: "Poppins-Regular", serif;
+    font-family: ${FontFamily.of(FontName.NOTOSANSKR, FontWeightName.BLACK).getFontFamily()}, serif;
   }
 
   * {
