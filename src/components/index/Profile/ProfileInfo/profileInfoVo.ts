@@ -1,29 +1,21 @@
+import ProfileAdditionalInfoVo from './profileAdditionalInfoVo'
+
 class ProfileInfoVo {
 
-	static AdditionalInfoVo = class {
-
-		constructor (title: string, content: string) {
-			this._title = title
-			this._content = content
-		}
-
-		private readonly _title: string
-		private readonly _content: string
-
-		getTitle (): string {
-			return this._title
-		}
-
-		getContent (): string {
-			return this._content
-		}
-	}
-
-	constructor (
+	static of (
 		name: string,
 		job: string,
 		description: string,
-		additionalInfos: ProfileInfoVo.AdditionalInfoVo[]) {
+		additionalInfos: ProfileAdditionalInfoVo[]
+	): ProfileInfoVo {
+		return new ProfileInfoVo(name, job, description, additionalInfos)
+	}
+
+	private constructor (
+		name: string,
+		job: string,
+		description: string,
+		additionalInfos: ProfileAdditionalInfoVo[]) {
 		this._name = name
 		this._job = job
 		this._description = description
@@ -33,7 +25,7 @@ class ProfileInfoVo {
 	private readonly _name: string
 	private readonly _job: string
 	private readonly _description: string
-	private readonly _additionalInfos: ProfileInfoVo.AdditionalInfoVo[]
+	private readonly _additionalInfos: ProfileAdditionalInfoVo[]
 
 	getName (): string {
 		return this._name
@@ -47,13 +39,9 @@ class ProfileInfoVo {
 		return this._description
 	}
 
-	getAdditionalInfos (): ProfileInfoVo.AdditionalInfoVo[] {
+	getAdditionalInfos (): ProfileAdditionalInfoVo[] {
 		return this._additionalInfos
 	}
-}
-
-namespace ProfileInfoVo {
-	export type AdditionalInfoVo = InstanceType<typeof ProfileInfoVo.AdditionalInfoVo>;
 }
 
 export default ProfileInfoVo

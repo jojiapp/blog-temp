@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
-import ProfileInfoVo from '../profileInfoVo'
+import ProfileAdditionalInfoVo from '../profileAdditionalInfoVo'
 
 type PropsType = {
-	additionalInfoVo: ProfileInfoVo.AdditionalInfoVo
+	additionalInfoVo: ProfileAdditionalInfoVo
 }
 
 const ProfileAdditionalItem = ({ additionalInfoVo }: PropsType) => (

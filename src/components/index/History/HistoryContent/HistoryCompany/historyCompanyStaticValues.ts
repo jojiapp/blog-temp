@@ -1,16 +1,17 @@
 import HistoryCompanyVo from './historyCompanyVo'
+import HistoryWorkVo from './HistoryWork/historyWorkVo'
 
 // === Hexcon History === //
 
 const hexconWorks = [
-	new HistoryCompanyVo.HistoryWorkVo(
+	HistoryWorkVo.of(
 		'엑스큐베이터',
 		[
 			'저러쿵저러쿵저러쿵저러쿵저러쿵 저러쿵저러쿵저러쿵저러쿵 저러쿵저러쿵저러쿵저러쿵저러쿵저러쿵 저러쿵저러쿵저러쿵저러쿵 저러쿵저러쿵 저러쿵저러쿵저러쿵',
 			'이러쿵'
 		]
 	),
-	new HistoryCompanyVo.HistoryWorkVo(
+	HistoryWorkVo.of(
 		'주피토',
 		[
 			'저러쿵',
@@ -20,7 +21,7 @@ const hexconWorks = [
 ]
 
 export const getHexconHistory = () =>
-	new HistoryCompanyVo(
+	HistoryCompanyVo.of(
 		'헥스콘',
 		'Back End',
 		new Date(2021, 4),
@@ -31,7 +32,7 @@ export const getHexconHistory = () =>
 // === TelePiX History === //
 
 const telepixWorks = [
-	new HistoryCompanyVo.HistoryWorkVo(
+	HistoryWorkVo.of(
 		'미도과제',
 		[
 			'이러어쿵',
@@ -42,7 +43,7 @@ const telepixWorks = [
 ]
 
 export const getTelepixHistory = () =>
-	new HistoryCompanyVo(
+	HistoryCompanyVo.of(
 		'TelePiX',
 		'Back End',
 		new Date(2022, 2),

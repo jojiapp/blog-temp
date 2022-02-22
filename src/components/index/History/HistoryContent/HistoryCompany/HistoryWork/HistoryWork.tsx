@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import HistoryCompanyVo from '../historyCompanyVo'
 import { nanoid } from 'nanoid'
 import HistoryDetail from './HistoryDetail'
+import HistoryWorkVo from './historyWorkVo'
 
 type PropsType = {
-	historyWorkVo: HistoryCompanyVo.HistoryWorkVo
+	historyWorkVo: HistoryWorkVo
 }
 
 const HistoryWork = ({ historyWorkVo }: PropsType) => (

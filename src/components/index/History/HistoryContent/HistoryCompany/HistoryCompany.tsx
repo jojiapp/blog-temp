@@ -9,20 +9,24 @@ type PropsType = {
 
 const HistoryCompany = ({ historyCompanyVo }: PropsType) => (
 	<Container>
-		<TitleText>
-			<span>{historyCompanyVo.getCompany()}</span>
-			<span>[{historyCompanyVo.getJob()}]</span>
-			<span>|</span>
-			<span>{historyCompanyVo.getStartDate()}</span>
-			<span>~</span>
-			<span>{historyCompanyVo.getEndDate()}</span>
-		</TitleText>
+		<Title historyCompanyVo={historyCompanyVo}/>
 		<HistoryWorksWrapper>
 			{historyCompanyVo.getHistoryWorks().map(historyWork =>
 				<HistoryWork key={nanoid()} historyWorkVo={historyWork}/>
 			)}
 		</HistoryWorksWrapper>
 	</Container>
+)
+
+const Title = ({ historyCompanyVo }: PropsType) => (
+	<TitleText>
+		<span>{historyCompanyVo.getCompany()}</span>
+		<span>[{historyCompanyVo.getJob()}]</span>
+		<span>|</span>
+		<span>{historyCompanyVo.getStartDate()}</span>
+		<span>~</span>
+		<span>{historyCompanyVo.getEndDate()}</span>
+	</TitleText>
 )
 
 // === Styled === //

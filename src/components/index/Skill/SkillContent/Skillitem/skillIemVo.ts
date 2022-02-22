@@ -1,6 +1,14 @@
 class SkillItemVo {
 
-	constructor (
+	static of (
+		language: string,
+		description: string,
+		iconSvgPath: string,
+		iconColor: string): SkillItemVo {
+		return new SkillItemVo(language, description, iconSvgPath, iconColor)
+	}
+
+	private constructor (
 		language: string,
 		description: string,
 		iconSvgPath: string,

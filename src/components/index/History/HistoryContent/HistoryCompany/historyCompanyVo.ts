@@ -1,30 +1,23 @@
+import HistoryWorkVo from './HistoryWork/historyWorkVo'
+
 class HistoryCompanyVo {
 
-	static HistoryWorkVo = class {
-
-		constructor (work: string, details: string[]) {
-			this._work = work
-			this._details = details
-		}
-
-		private readonly _work: string
-		private readonly _details: string[]
-
-		getWork (): string {
-			return this._work
-		}
-
-		getDetails (): string[] {
-			return this._details
-		}
-	}
-
-	constructor (
+	static of (
 		company: string,
 		job: string,
 		startDate: Date,
 		endDate: Date | null,
-		historyWorks: HistoryCompanyVo.HistoryWorkVo[]) {
+		historyWorks: HistoryWorkVo[]
+	): HistoryCompanyVo {
+		return new HistoryCompanyVo(company, job, startDate, endDate, historyWorks)
+	}
+
+	private constructor (
+		company: string,
+		job: string,
+		startDate: Date,
+		endDate: Date | null,
+		historyWorks: HistoryWorkVo[]) {
 		this._company = company
 		this._job = job
 		this._startDate = startDate
@@ -36,7 +29,7 @@ class HistoryCompanyVo {
 	private readonly _job: string
 	private readonly _startDate: Date
 	private readonly _endDate: Date | null
-	private readonly _historyWorks: HistoryCompanyVo.HistoryWorkVo[]
+	private readonly _historyWorks: HistoryWorkVo[]
 
 	getCompany (): string {
 		return this._company
@@ -62,13 +55,9 @@ class HistoryCompanyVo {
 		return this._endDate === null ? '재직중' : this._getDate(this._endDate)
 	}
 
-	getHistoryWorks (): HistoryCompanyVo.HistoryWorkVo[] {
+	getHistoryWorks (): HistoryWorkVo[] {
 		return this._historyWorks
 	}
-}
-
-namespace HistoryCompanyVo {
-	export type HistoryWorkVo = InstanceType<typeof HistoryCompanyVo.HistoryWorkVo>;
 }
 
 export default HistoryCompanyVo

@@ -1,6 +1,5 @@
 export enum FontName {
 	POPPINS = 'Poppins',
-	NOTOSANSKR = 'NotoSansKR'
 }
 
 export enum FontWeightName {

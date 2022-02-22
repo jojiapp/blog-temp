@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components'
 import { FontFamily } from './globalFontStyle'
 
-const globalColorStyle = ({ color }: DefaultTheme) => {
+const globalThemeStyle = ({ color }: DefaultTheme) => {
 	return {
 		':root': {
 			'--point': color.point,
@@ -11,4 +11,4 @@ const globalColorStyle = ({ color }: DefaultTheme) => {
 	}
 }
 
-export default globalColorStyle
+export default globalThemeStyle

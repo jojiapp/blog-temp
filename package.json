@@ -5,6 +5,7 @@
 	"dev": "next dev",
 	"prebuild": "yarn clean",
 	"build": "next build",
+	"prestart": "yarn build",
 	"start": "next start",
 	"lint": "next lint",
 	"clean": "rm -rf ./.next"
