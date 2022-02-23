@@ -9,12 +9,10 @@ const SkillTitle = ({
 	currentSkill
 }: SkillButtonPropsType) => (
 	<Container>
-		<Wrapper>
-			<TitleText>{title}</TitleText>
-			<DescriptionText>{description}</DescriptionText>
-			<SkillTitleButtons handleButtonClick={handleButtonClick}
-			                   currentSkill={currentSkill}/>
-		</Wrapper>
+		<TitleText>{title}</TitleText>
+		<DescriptionText>{description}</DescriptionText>
+		<SkillTitleButtons handleButtonClick={handleButtonClick}
+		                   currentSkill={currentSkill}/>
 	</Container>
 )
 
@@ -22,10 +20,6 @@ const SkillTitle = ({
 
 const Container = styled.div`
   flex: 1;
-`
-
-const Wrapper = styled.div`
-  padding-right: 5rem;
 `
 
 const TitleText = styled.h2`

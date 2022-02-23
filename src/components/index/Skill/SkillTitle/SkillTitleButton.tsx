@@ -22,7 +22,6 @@ const SkillTitleButton = ({
 // === Styled === //
 
 const Button = styled.button<ButtonStyledPropsType>`
-  width: 45%;
   display: flex;
   height: 4.6rem;
   align-items: center;

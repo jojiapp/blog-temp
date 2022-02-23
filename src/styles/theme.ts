@@ -9,7 +9,7 @@ export const theme: DefaultTheme = {
 	},
 	font: {
 		family: {
-			title: FontFamily.of(FontName.POPPINS, FontWeightName.BLACK_ITALIC).getFontFamily(),
+			title: FontFamily.of(FontName.POPPINS, FontWeightName.SEMI_BOLD).getFontFamily(),
 			subTitle: FontFamily.of(FontName.POPPINS, FontWeightName.REGULAR).getFontFamily(),
 			semiSubTitle: FontFamily.of(FontName.POPPINS, FontWeightName.SEMI_BOLD).getFontFamily(),
 			content: FontFamily.of(FontName.POPPINS, FontWeightName.LIGHT).getFontFamily(),

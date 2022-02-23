@@ -19,7 +19,7 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
-  padding-right: 7rem;
+  padding-right: 5rem;
 `
 
 const TitleText = styled.h2`

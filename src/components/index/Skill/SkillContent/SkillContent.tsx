@@ -22,6 +22,7 @@ const SkillContent = ({ currentSkill }: PropsType) => {
 
 const Container = styled.div`
   flex: 2;
+  padding-left: 10rem;
 `
 
 export default SkillContent
