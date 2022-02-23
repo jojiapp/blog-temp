@@ -10,6 +10,6 @@ export const theme: DefaultTheme = {
 	color: {
 		point: '#182F43',
 		gray: '#93939D',
-		lightGray: '#FCFCFC',
-	},
+		lightGray: '#FCFCFC'
+	}
 }

@@ -10,7 +10,11 @@ type ButtonStyledPropsType = {
 	isSelected: boolean
 }
 
-const SkillTitleButton = ({ handleButtonClick, currentSkill, skillCategory }: PropsType) => (
+const SkillTitleButton = ({
+	handleButtonClick,
+	currentSkill,
+	skillCategory
+}: PropsType) => (
 	<Button onClick={(e) => handleButtonClick(e, skillCategory)}
 	        isSelected={currentSkill === skillCategory}>{skillCategory}</Button>
 )

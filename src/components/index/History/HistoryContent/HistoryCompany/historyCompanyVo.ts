@@ -2,15 +2,11 @@ import HistoryWorkVo from './HistoryWork/historyWorkVo'
 
 class HistoryCompanyVo {
 
-	static of (
-		company: string,
-		job: string,
-		startDate: Date,
-		endDate: Date | null,
-		historyWorks: HistoryWorkVo[]
-	): HistoryCompanyVo {
-		return new HistoryCompanyVo(company, job, startDate, endDate, historyWorks)
-	}
+	private readonly _company: string
+	private readonly _job: string
+	private readonly _startDate: Date
+	private readonly _endDate: Date | null
+	private readonly _historyWorks: HistoryWorkVo[]
 
 	private constructor (
 		company: string,
@@ -25,11 +21,15 @@ class HistoryCompanyVo {
 		this._historyWorks = historyWorks
 	}
 
-	private readonly _company: string
-	private readonly _job: string
-	private readonly _startDate: Date
-	private readonly _endDate: Date | null
-	private readonly _historyWorks: HistoryWorkVo[]
+	static of (
+		company: string,
+		job: string,
+		startDate: Date,
+		endDate: Date | null,
+		historyWorks: HistoryWorkVo[]
+	): HistoryCompanyVo {
+		return new HistoryCompanyVo(company, job, startDate, endDate, historyWorks)
+	}
 
 	getCompany (): string {
 		return this._company
@@ -37,14 +37,6 @@ class HistoryCompanyVo {
 
 	getJob (): string {
 		return this._job
-	}
-
-	private _getFullMonth (month: number): string {
-		return (month > 10 ? month : `0${month}`).toString()
-	}
-
-	private _getDate (date: Date): string {
-		return `${date.getFullYear()}.${this._getFullMonth(date.getMonth())}`
 	}
 
 	getStartDate (): string {
@@ -57,6 +49,14 @@ class HistoryCompanyVo {
 
 	getHistoryWorks (): HistoryWorkVo[] {
 		return this._historyWorks
+	}
+
+	private _getFullMonth (month: number): string {
+		return (month > 10 ? month : `0${month}`).toString()
+	}
+
+	private _getDate (date: Date): string {
+		return `${date.getFullYear()}.${this._getFullMonth(date.getMonth())}`
 	}
 }
 

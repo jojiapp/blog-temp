@@ -6,13 +6,15 @@ import SkillCategory from './skillCategory'
 
 const Skill = () => {
 	const [currentSkill, setCurrentSkill] = useState(SkillCategory.BACK_END)
-	const handleButtonClick = useCallback((e: MouseEvent<HTMLButtonElement>, currentSkill: SkillCategory) => {
-		setCurrentSkill(currentSkill)
-	}, [])
+	const handleButtonClick = useCallback(
+		(e: MouseEvent<HTMLButtonElement>, currentSkill: SkillCategory) => {
+			setCurrentSkill(currentSkill)
+		}, [])
 
 	return (
 		<Container>
-			<SkillTitle handleButtonClick={handleButtonClick} currentSkill={currentSkill}/>
+			<SkillTitle handleButtonClick={handleButtonClick}
+			            currentSkill={currentSkill}/>
 			<SkillContent currentSkill={currentSkill}/>
 		</Container>
 	)

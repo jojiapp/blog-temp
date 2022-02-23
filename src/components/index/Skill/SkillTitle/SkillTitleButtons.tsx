@@ -4,11 +4,15 @@ import { MouseEvent } from 'react'
 import SkillTitleButton from './SkillTitleButton'
 
 export type SkillButtonPropsType = {
-	handleButtonClick: (e: MouseEvent<HTMLButtonElement>, currentSkill: SkillCategory) => void,
+	handleButtonClick: (
+		e: MouseEvent<HTMLButtonElement>, currentSkill: SkillCategory) => void,
 	currentSkill: SkillCategory
 }
 
-const SkillTitleButtons = ({ handleButtonClick, currentSkill }: SkillButtonPropsType) => {
+const SkillTitleButtons = ({
+	handleButtonClick,
+	currentSkill
+}: SkillButtonPropsType) => {
 	return (
 		<Wrapper>
 			<SkillTitleButton handleButtonClick={handleButtonClick}

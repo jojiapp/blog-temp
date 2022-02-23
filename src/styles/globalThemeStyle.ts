@@ -1,5 +1,4 @@
 import { DefaultTheme } from 'styled-components'
-import { FontFamily } from './globalFontStyle'
 
 const globalThemeStyle = ({ color }: DefaultTheme) => {
 	return {

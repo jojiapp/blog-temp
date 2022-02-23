@@ -1,12 +1,9 @@
 class SkillItemVo {
 
-	static of (
-		language: string,
-		description: string,
-		iconSvgPath: string,
-		iconColor: string): SkillItemVo {
-		return new SkillItemVo(language, description, iconSvgPath, iconColor)
-	}
+	private readonly _language: string
+	private readonly _description: string
+	private readonly _iconSvgPath: string
+	private readonly _iconColor: string
 
 	private constructor (
 		language: string,
@@ -20,10 +17,13 @@ class SkillItemVo {
 		this._iconColor = iconColor
 	}
 
-	private readonly _language: string
-	private readonly _description: string
-	private readonly _iconSvgPath: string
-	private readonly _iconColor: string
+	static of (
+		language: string,
+		description: string,
+		iconSvgPath: string,
+		iconColor: string): SkillItemVo {
+		return new SkillItemVo(language, description, iconSvgPath, iconColor)
+	}
 
 	getLanguage (): string {
 		return this._language

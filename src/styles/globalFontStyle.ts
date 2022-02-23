@@ -25,15 +25,15 @@ export enum FontWeightName {
 
 export class FontFamily {
 
-	static of (fontName: string, fontWeightName: string): FontFamily {
-		return new FontFamily(fontName, fontWeightName)
-	}
+	private readonly _fontFamily: string
 
 	private constructor (fontName: string, fontWeightName: string) {
 		this._fontFamily = `${fontName}-${fontWeightName}`
 	}
 
-	private readonly _fontFamily: string
+	static of (fontName: string, fontWeightName: string): FontFamily {
+		return new FontFamily(fontName, fontWeightName)
+	}
 
 	public getFontFamily (): string {
 		return this._fontFamily
@@ -41,16 +41,15 @@ export class FontFamily {
 }
 
 const globalFontStyle = (fontName: string) => {
-	return Object.values(FontWeightName)
-		.map(fontWeightName => {
-			const fontWeight = FontFamily.of(fontName, fontWeightName)
-			return `
+	return Object.values(FontWeightName).map(fontWeightName => {
+		const fontWeight = FontFamily.of(fontName, fontWeightName)
+		return `
 				@font-face {
 					'font-family': ${fontWeight.getFontFamily()},
 					'src': url('/fonts/${fontName}/${fontWeight.getFontFamily()}.ttf') format('ttf'),
 					'font-display': 'swap'
 		    }`
-		})
+	})
 }
 
 export default globalFontStyle

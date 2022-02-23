@@ -1,16 +1,16 @@
 class HistoryWorkVo {
 
-	static of (work: string, details: string[]): HistoryWorkVo {
-		return new HistoryWorkVo(work, details)
-	}
+	private readonly _work: string
+	private readonly _details: string[]
 
 	private constructor (work: string, details: string[]) {
 		this._work = work
 		this._details = details
 	}
 
-	private readonly _work: string
-	private readonly _details: string[]
+	static of (work: string, details: string[]): HistoryWorkVo {
+		return new HistoryWorkVo(work, details)
+	}
 
 	getWork (): string {
 		return this._work

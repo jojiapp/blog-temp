@@ -1,12 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import globalThemeStyle from './globalThemeStyle'
-import globalFontStyle, { FontFamily, FontName, FontWeightName } from './globalFontStyle'
+import globalFontStyle, {
+	FontFamily,
+	FontName,
+	FontWeightName
+} from './globalFontStyle'
 
 const GlobalStyle = createGlobalStyle`
 
   ${({ theme }) => globalThemeStyle(theme)} // Color 일괄 적용
-  ${globalFontStyle(FontName.POPPINS  )} // 폰트 일괄 적용
+  ${globalFontStyle(FontName.POPPINS)} // 폰트 일괄 적용
   ${reset}
   html, body {
     min-height: 100%;
@@ -21,7 +25,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-size: 1.6rem !important;
-    font-family: ${FontFamily.of(FontName.POPPINS , FontWeightName.BLACK).getFontFamily()}, serif;
+    font-family: ${FontFamily.of(FontName.POPPINS, FontWeightName.BLACK).
+            getFontFamily()}, serif;
   }
 
   * {

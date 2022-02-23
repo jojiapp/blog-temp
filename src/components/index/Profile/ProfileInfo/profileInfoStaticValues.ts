@@ -10,6 +10,6 @@ export const getProfileInfo = () =>
 			ProfileAdditionalInfoVo.of('Email', 'jojiapp@gmail.com'),
 			ProfileAdditionalInfoVo.of('Blog', 'https://jojiapp.github.io'),
 			ProfileAdditionalInfoVo.of('Github', 'https://github.com/jojiapp'),
-			ProfileAdditionalInfoVo.of('Mobile', '010-4435-8426'),
-		],
+			ProfileAdditionalInfoVo.of('Mobile', '010-4435-8426')
+		]
 	)

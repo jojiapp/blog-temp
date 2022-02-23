@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 import HistoryCompany from './HistoryCompany'
 import { nanoid } from 'nanoid'
-import { getHexconHistory, getTelepixHistory } from './HistoryCompany/historyCompanyStaticValues'
+import {
+	getHexconHistory,
+	getTelepixHistory
+} from './HistoryCompany/historyCompanyStaticValues'
 
 const historyCompanies = [
 	getTelepixHistory(),

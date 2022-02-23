@@ -2,14 +2,10 @@ import ProfileAdditionalInfoVo from './profileAdditionalInfoVo'
 
 class ProfileInfoVo {
 
-	static of (
-		name: string,
-		job: string,
-		description: string,
-		additionalInfos: ProfileAdditionalInfoVo[]
-	): ProfileInfoVo {
-		return new ProfileInfoVo(name, job, description, additionalInfos)
-	}
+	private readonly _name: string
+	private readonly _job: string
+	private readonly _description: string
+	private readonly _additionalInfos: ProfileAdditionalInfoVo[]
 
 	private constructor (
 		name: string,
@@ -22,10 +18,14 @@ class ProfileInfoVo {
 		this._additionalInfos = additionalInfos
 	}
 
-	private readonly _name: string
-	private readonly _job: string
-	private readonly _description: string
-	private readonly _additionalInfos: ProfileAdditionalInfoVo[]
+	static of (
+		name: string,
+		job: string,
+		description: string,
+		additionalInfos: ProfileAdditionalInfoVo[]
+	): ProfileInfoVo {
+		return new ProfileInfoVo(name, job, description, additionalInfos)
+	}
 
 	getName (): string {
 		return this._name
