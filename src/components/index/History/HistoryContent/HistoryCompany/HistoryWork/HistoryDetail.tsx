@@ -16,7 +16,6 @@ const HistoryDetail = ({ detail }: PropsType) => (
 const Box = styled.li`
   display: flex;
   gap: 1rem;
-  font-weight: 300;
 `
 
 export default HistoryDetail

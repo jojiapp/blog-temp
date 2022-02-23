@@ -21,15 +21,15 @@ const HistoryWork = ({ historyWorkVo }: PropsType) => (
 // === Styled === //
 
 const WorkText = styled.div`
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-family: var(--font_family_sub_title);
+  font-size: var(--font_size_semi_sub_title);
   margin-bottom: 2rem;
 `
 
 const Details = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 `
 
 export default HistoryWork

@@ -4,23 +4,23 @@ export enum FontName {
 
 export enum FontWeightName {
 	BLACK = 'Black',
-	BLACKITALIC = 'BlackItalic',
+	BLACK_ITALIC = 'BlackItalic',
 	BOLD = 'Bold',
-	BOLDITALIC = 'BoldItalic',
-	EXTRABOLD = 'ExtraBold',
-	EXTRABOLDITALIC = 'ExtraBoldItalic',
-	EXTRALIGHT = 'ExtraLight',
-	EXTRALIGHTITALIC = 'ExtraLightItalic',
+	BOLD_ITALIC = 'BoldItalic',
+	EXTRA_BOLD = 'ExtraBold',
+	EXTRA_BOLD_ITALIC = 'ExtraBoldItalic',
+	EXTRA_LIGHT = 'ExtraLight',
+	EXTRA_LIGHT_ITALIC = 'ExtraLightItalic',
 	ITALIC = 'Italic',
 	LIGHT = 'Light',
-	LIGHTITALIC = 'LightItalic',
+	LIGHT_ITALIC = 'LightItalic',
 	MEDIUM = 'Medium',
-	MEDIUMITALIC = 'MediumItalic',
+	MEDIUM_ITALIC = 'MediumItalic',
 	REGULAR = 'Regular',
-	SEMIBOLD = 'SemiBold',
-	SEMIBOLDITALIC = 'SemiBoldItalic',
+	SEMI_BOLD = 'SemiBold',
+	SEMI_BOLD_ITALIC = 'SemiBoldItalic',
 	THIN = 'Thin',
-	THINITALIC = 'ThinItalic'
+	THIN_ITALIC = 'ThinItalic'
 }
 
 export class FontFamily {
@@ -45,11 +45,11 @@ const globalFontStyle = (fontName: string) => {
 		const fontWeight = FontFamily.of(fontName, fontWeightName)
 		return `
 				@font-face {
-					'font-family': ${fontWeight.getFontFamily()},
-					'src': url('/fonts/${fontName}/${fontWeight.getFontFamily()}.ttf') format('ttf'),
-					'font-display': 'swap'
+					'font-family': ${fontWeight.getFontFamily()};
+					'src': url('/fonts/${fontName}/${fontWeight.getFontFamily()}.ttf') format('ttf');
+					'font-display': 'swap';
 		    }`
-	})
+	}).join('\n')
 }
 
 export default globalFontStyle

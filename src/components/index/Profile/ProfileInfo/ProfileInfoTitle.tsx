@@ -17,14 +17,14 @@ const Wrapper = styled.div`
 `
 
 const NameText = styled.div`
-  font-size: 3.8rem;
-  font-weight: 500;
+  font-family: var(--font_family_title);
+  font-size: var(--font_size_title);
   margin-right: 2rem;
   letter-spacing: 1rem;
 `
 
 const JobText = styled.div`
-  font-size: 1.8rem;
+  font-family: var(--font_family_sub_title);
   color: var(--gray);
 `
 

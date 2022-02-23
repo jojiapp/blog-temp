@@ -1,32 +1,33 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import globalThemeStyle from './globalThemeStyle'
-import globalFontStyle, {
-	FontFamily,
-	FontName,
-	FontWeightName
-} from './globalFontStyle'
+import globalFontStyle, { FontName } from './globalFontStyle'
+
+// @font-face {
+//   src: url('/fonts/${FontName.POPPINS}/${FontWeightName.BLACK}.ttf') format('ttf'),
+//   font-display: swap
+// }
 
 const GlobalStyle = createGlobalStyle`
 
-  ${({ theme }) => globalThemeStyle(theme)} // Color 일괄 적용
+  ${({ theme }) => globalThemeStyle(theme)}
+    // Color 일괄 적용
   ${globalFontStyle(FontName.POPPINS)} // 폰트 일괄 적용
   ${reset}
   html, body {
     min-height: 100%;
-    color: var(--point);
-    word-break: keep-all;
-    line-height: 2.6rem;
   }
 
   html {
-    font-size: 10px !important;
+    font-size: 10px;
   }
 
   body {
-    font-size: 1.6rem !important;
-    font-family: ${FontFamily.of(FontName.POPPINS, FontWeightName.BLACK).
-            getFontFamily()}, serif;
+    font-size: 1.6rem;
+    color: var(--point);
+    word-break: keep-all;
+    line-height: 2.56rem;
+    font-family: var(--font_family_content);
   }
 
   * {
@@ -35,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
 
   button, a {
     all: unset;
+    font: inherit;
     cursor: pointer;
     color: var(--point);
   }

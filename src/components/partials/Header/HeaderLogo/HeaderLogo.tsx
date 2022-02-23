@@ -13,8 +13,8 @@ const HeaderLogo = () => (
 // === Styled === //
 
 const LogoBox = styled.div`
-  font-size: 2.6rem;
-  font-weight: bold;
+  font-family: var(--font_family_logo);
+  font-size: var(--font_size_logo);
   color: var(--point);
 `
 

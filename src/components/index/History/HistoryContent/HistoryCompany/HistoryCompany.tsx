@@ -40,8 +40,8 @@ const Container = styled.article`
 const TitleText = styled.h3`
   display: flex;
   gap: 1rem;
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-family: var(--font_family_title);
+  font-size: var(--font_size_semi_sub_title);
   margin-bottom: 4rem;
 `
 

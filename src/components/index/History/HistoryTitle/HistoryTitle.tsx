@@ -23,8 +23,8 @@ const Wrapper = styled.div`
 `
 
 const TitleText = styled.h2`
-  font-size: 3.8rem;
-  font-weight: bold;
+  font-family: var(--font_family_title);
+  font-size: var(--font_size_title);
   line-height: 5.2rem;
   margin-bottom: 1rem;
 `

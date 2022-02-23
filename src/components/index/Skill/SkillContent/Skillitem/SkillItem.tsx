@@ -1,5 +1,6 @@
 import SkillItemVo from './skillIemVo'
 import styled from 'styled-components'
+import { nanoid } from 'nanoid'
 
 type PropsType = {
 	skillItemVo: SkillItemVo
@@ -18,7 +19,10 @@ const SkillItem = ({ skillItemVo }: PropsType) => (
 			</svg>
 		</IconBox>
 		<LanguageText>{skillItemVo.getLanguage()}</LanguageText>
-		<DescriptionText>{skillItemVo.getDescription()}</DescriptionText>
+		<DescriptionText>
+			{skillItemVo.getContents().map(content =>
+				<span key={nanoid()}>{content}</span>)}
+		</DescriptionText>
 	</Wrapper>
 )
 
@@ -38,11 +42,15 @@ const IconBox = styled.div<IconPropsType>`
 `
 
 const LanguageText = styled.h3`
-
+  font-family: var(--font_family_title);
+  font-size: var(--font_size_sub_title);
+  line-height: 3.5rem;
 `
 
 const DescriptionText = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `
 
 export default SkillItem

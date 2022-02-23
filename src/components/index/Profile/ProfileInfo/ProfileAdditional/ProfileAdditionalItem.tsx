@@ -13,8 +13,8 @@ const ProfileAdditionalItem = ({ additionalInfoVo }: PropsType) => (
 		<IconBox>
 			<FontAwesomeIcon icon={faCircleCheck}/>
 		</IconBox>
-		<TitleText>{additionalInfoVo.getTitle()} -</TitleText>
-		{additionalInfoVo.getContent()}
+		<TitleText>{additionalInfoVo.getTitle()}</TitleText>
+		<span>- {additionalInfoVo.getContent()}</span>
 	</Wrapper>
 )
 
@@ -34,7 +34,7 @@ const IconBox = styled.div`
 `
 
 const TitleText = styled.div`
-  font-weight: bold;
+  font-family: var(--font_family_sub_title);
   margin-right: 0.5rem;
 `
 
