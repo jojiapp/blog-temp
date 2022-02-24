@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import globalThemeStyle from './globalThemeStyle'
-import globalFontStyle, { FontName } from './globalFontStyle'
+import globalFontStyle from './globalFontStyle'
 
 // @font-face {
 //   src: url('/fonts/${FontName.POPPINS}/${FontWeightName.BLACK}.ttf') format('ttf'),
@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
   ${({ theme }) => globalThemeStyle(theme)}
     // Color 일괄 적용
-  ${globalFontStyle(FontName.POPPINS)} // 폰트 일괄 적용
+  ${globalFontStyle()} // 폰트 일괄 적용
   ${reset}
   html, body {
     min-height: 100%;

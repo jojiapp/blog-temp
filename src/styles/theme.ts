@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components'
-import { FontFamily, FontName, FontWeightName } from './globalFontStyle'
+import { FontFamily, FontWeightName } from './globalFontStyle'
 
 export const theme: DefaultTheme = {
 	color: {
@@ -9,11 +9,11 @@ export const theme: DefaultTheme = {
 	},
 	font: {
 		family: {
-			title: FontFamily.of(FontName.POPPINS, FontWeightName.SEMI_BOLD).getFontFamily(),
-			subTitle: FontFamily.of(FontName.POPPINS, FontWeightName.REGULAR).getFontFamily(),
-			semiSubTitle: FontFamily.of(FontName.POPPINS, FontWeightName.SEMI_BOLD).getFontFamily(),
-			content: FontFamily.of(FontName.POPPINS, FontWeightName.LIGHT).getFontFamily(),
-			logo: FontFamily.of(FontName.POPPINS, FontWeightName.BOLD).getFontFamily()
+			title: FontFamily.NOTO_SANS.getFontFamilies(FontWeightName.BOLD),
+			subTitle: FontFamily.NOTO_SANS.getFontFamilies(FontWeightName.REGULAR),
+			semiSubTitle: FontFamily.NOTO_SANS.getFontFamilies(FontWeightName.REGULAR),
+			content: FontFamily.NOTO_SANS.getFontFamilies(FontWeightName.LIGHT),
+			logo: FontFamily.NOTO_SANS.getFontFamilies(FontWeightName.BOLD)
 		},
 		size: {
 			logo: '2.6rem',
