@@ -1,5 +1,5 @@
 ---
-description: iTerm2와 oh my zsh를 사용하여 터미널을 이쁘게 커스텀 할 수 있습니다.  
+description: iTerm2와 oh my zsh를 사용하여 터미널을 커스텀.  
 createdAt: 2022-01-29  
 updatedAt: 2022-01-29
 ---

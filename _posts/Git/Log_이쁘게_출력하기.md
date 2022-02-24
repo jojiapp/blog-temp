@@ -1,5 +1,5 @@
 ---
-description: Git에서 Log를 이쁘게 출력하는 방법에 대해 알아보겠습니다.  
+description: Git에서 Log를 이쁘게 출력하는 방법.  
 createdAt: 2022-02-05  
 updatedAt: 2022-02-05
 ---

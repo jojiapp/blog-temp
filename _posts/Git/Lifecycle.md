@@ -1,5 +1,5 @@
 ---
-description: Git을 제대로 이해하고 사용하기 위해서는 Lifecycle에 대해서 제대로 이해하고 있어야 합니다.  
+description: Git을 제대로 이해하고 사용하기 위해서는 Lifecycle에 대해서 제대로 이해하기.  
 createdAt: 2022-02-01  
 updatedAt: 2022-02-01
 ---
