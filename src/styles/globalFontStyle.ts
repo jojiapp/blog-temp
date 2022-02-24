@@ -21,15 +21,13 @@ export enum FontWeightName {
 
 export class FontFamily {
 
-	private readonly _name: string
 	private readonly _fonts: string[]
 
-	private constructor (name: string, fonts: string[]) {
-		this._name = name
+	private constructor (fonts: string[]) {
 		this._fonts = fonts
 	}
 
-	static NOTO_SANS = new FontFamily('NotoSans', ['NotoSans', 'NotoSansKR'])
+	static NOTO_SANS = new FontFamily(['NotoSans', 'NotoSansKR'])
 
 	public getFontFamilies (weightName: FontWeightName): string {
 		return this.getFonts().map(font => `${this.getFontFamily(font, weightName)}`).join(',  ')
@@ -37,10 +35,6 @@ export class FontFamily {
 
 	private getFontFamily (font: string, weightName: FontWeightName): string {
 		return `${font}-${weightName}`
-	}
-
-	public getName (): string {
-		return this._name
 	}
 
 	public getFonts (): string[] {
