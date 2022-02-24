@@ -1,5 +1,6 @@
 ---
 description: IntelliJ 에서 로컬에 설치한 Git 사용하도록 설정하기.  
+order: 3  
 createdAt: 2022-01-20  
 updatedAt: 2022-01-20
 ---

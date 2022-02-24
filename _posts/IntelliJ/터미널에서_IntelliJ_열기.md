@@ -1,5 +1,6 @@
 ---
-description: 터미널에서 IntelliJ를 실행 할 수 있도록 설정하기.   
+description: 터미널에서 IntelliJ를 실행 할 수 있도록 설정하기.  
+order: 1  
 createdAt: 2022-01-21  
 updatedAt: 2022-01-21
 ---

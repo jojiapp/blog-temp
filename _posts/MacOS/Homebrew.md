@@ -1,5 +1,6 @@
 ---
 description: Homebrew 설치 및 사용법 알아보기.  
+order: 1  
 createdAt: 2022-01-24  
 updatedAt: 2022-01-28
 ---

@@ -1,5 +1,6 @@
 ---
 description: iTerm2와 oh my zsh를 사용하여 터미널을 커스텀.  
+order: 2  
 createdAt: 2022-01-29  
 updatedAt: 2022-01-29
 ---

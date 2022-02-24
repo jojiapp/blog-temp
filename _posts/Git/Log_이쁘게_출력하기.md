@@ -1,5 +1,6 @@
 ---
 description: Git에서 Log를 이쁘게 출력하는 방법.  
+order: 4  
 createdAt: 2022-02-05  
 updatedAt: 2022-02-05
 ---

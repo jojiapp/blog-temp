@@ -1,5 +1,6 @@
 ---
 description: IntelliJ에서 Code Style을 설정하여 일관된 코드 스타일 유지하기.  
+order: 2  
 createdAt: 2022-01-23  
 updatedAt: 2022-02-16
 ---

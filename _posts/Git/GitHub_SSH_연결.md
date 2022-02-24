@@ -1,5 +1,6 @@
 ---
 description: GitHub에 SSH를 연결하여 사용하기.  
+order: 6  
 createdAt: 2022-01-20  
 updatedAt: 2022-01-30
 ---

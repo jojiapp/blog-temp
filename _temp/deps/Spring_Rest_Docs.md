@@ -136,10 +136,12 @@ dependencies {
 }
 ```
 
-- `asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor'`: `configurations` 설정과 한 묶음으로, 해당
-  라이브러리를 추가해야 `operation`과 `{snippets}`을 사용할 수 있습니다.
-- `testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'` 라이브러리를 의존성에 추가합니다.
-- `implementation 'org.springframework.boot:spring-boot-starter-hateoas'`: `HATEOAS`도 간단하게 적용해보기 위해 추가하였습니다.
+- `asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor'`
+    - `configurations` 설정과 한 묶음으로, 해당 라이브러리를 추가해야 `operation`과 `{snippets}`을 사용할 수 있습니다.
+- `testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'`
+    - 테스트 코드를 작성하면 문서 조각을 생성해시켜주는 라이브러리입니다.
+- `implementation 'org.springframework.boot:spring-boot-starter-hateoas'`
+    - `HATEOAS`도 간단하게 적용해보기 위해 추가하였습니다.
 
 ### Tasks
 

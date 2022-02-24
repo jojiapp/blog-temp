@@ -1,5 +1,6 @@
 ---
 description: 버전 관리 시스템(VCS)중에 가장 많이 사용되는 Git에 대해 알아보기.  
+order: 1  
 createdAt: 2022-01-31  
 updatedAt: 2022-01-31
 ---
