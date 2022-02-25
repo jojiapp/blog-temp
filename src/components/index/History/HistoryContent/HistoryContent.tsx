@@ -4,18 +4,18 @@ import { nanoid } from 'nanoid'
 import { getHexconHistory, getTelepixHistory } from './HistoryCompany/historyCompanyStaticValues'
 
 const historyCompanies = [
-	getTelepixHistory(),
-	getHexconHistory()
+  getTelepixHistory(),
+  getHexconHistory()
 ]
 
 const HistoryContent = () => (
-	<Container>
-		<Wrapper>
-			{historyCompanies.map(historyCompanyVo =>
-				<HistoryCompany key={nanoid()} historyCompanyVo={historyCompanyVo}/>
-			)}
-		</Wrapper>
-	</Container>
+  <Container>
+    <Wrapper>
+      {historyCompanies.map(historyCompanyVo =>
+        <HistoryCompany key={nanoid()} historyCompanyVo={historyCompanyVo}/>
+      )}
+    </Wrapper>
+  </Container>
 )
 
 // === Styled === //

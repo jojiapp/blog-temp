@@ -3,27 +3,27 @@ import styled from 'styled-components'
 import { nanoid } from 'nanoid'
 
 type PropsType = {
-	skillItemVo: SkillItemVo
+  skillItemVo: SkillItemVo
 }
 
 type IconPropsType = {
-	iconColor: string
+  iconColor: string
 }
 
 const SkillItem = ({ skillItemVo }: PropsType) => (
-	<Wrapper>
-		<IconBox iconColor={skillItemVo.getIconColor()}>
-			<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-				<title>{skillItemVo.getLanguage()}</title>
-				<path d={skillItemVo.getIconSvgPath()}/>
-			</svg>
-		</IconBox>
-		<LanguageText>{skillItemVo.getLanguage()}</LanguageText>
-		<DescriptionText>
-			{skillItemVo.getContents().map(content =>
-				<span key={nanoid()}>{content}</span>)}
-		</DescriptionText>
-	</Wrapper>
+  <Wrapper>
+    <IconBox iconColor={skillItemVo.getIconColor()}>
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <title>{skillItemVo.getLanguage()}</title>
+        <path d={skillItemVo.getIconSvgPath()}/>
+      </svg>
+    </IconBox>
+    <LanguageText>{skillItemVo.getLanguage()}</LanguageText>
+    <DescriptionText>
+      {skillItemVo.getContents().map(content =>
+        <span key={nanoid()}>{content}</span>)}
+    </DescriptionText>
+  </Wrapper>
 )
 
 // === Styled === //

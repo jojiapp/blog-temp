@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { ProfileInfoProps } from './ProfileInfo'
 
 const ProfileInfoTitle = ({ profileInfoVo }: ProfileInfoProps) => (
-	<Wrapper>
-		<NameText>{profileInfoVo.getName()}</NameText>
-		<JobText>{profileInfoVo.getJob()}</JobText>
-	</Wrapper>
+  <Wrapper>
+    <NameText>{profileInfoVo.getName()}</NameText>
+    <JobText>{profileInfoVo.getJob()}</JobText>
+  </Wrapper>
 )
 
 // === Styled === //

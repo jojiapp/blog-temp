@@ -4,12 +4,12 @@ const title = `I've been doing this for a while.`
 const description = '이러쿵 저러쿵 그러쿵 이러쿵 저러쿵 그러쿵 이러쿵 저러쿵 그러쿵'
 
 const HistoryTitle = () => (
-	<Container>
-		<Wrapper>
-			<TitleText>{title}</TitleText>
-			<DescriptionText>{description}</DescriptionText>
-		</Wrapper>
-	</Container>
+  <Container>
+    <Wrapper>
+      <TitleText>{title}</TitleText>
+      <DescriptionText>{description}</DescriptionText>
+    </Wrapper>
+  </Container>
 )
 
 // === Styled === //

@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { ProfileInfoProps } from './ProfileInfo'
 
 const ProfileInfoDescription = ({ profileInfoVo }: ProfileInfoProps) => (
-	<DescriptionText>
-		{profileInfoVo.getDescription()}
-	</DescriptionText>
+  <DescriptionText>
+    {profileInfoVo.getDescription()}
+  </DescriptionText>
 )
 
 // === Styled === //

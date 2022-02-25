@@ -4,10 +4,10 @@ import HeaderSearch from './HeaderSearch'
 import HeaderBlogButton from './HeaderBlogButton'
 
 const HeaderBlogArea = () => (
-	<Wrapper>
-		<HeaderSearch/>
-		<HeaderBlogButton/>
-	</Wrapper>
+  <Wrapper>
+    <HeaderSearch/>
+    <HeaderBlogButton/>
+  </Wrapper>
 )
 
 // === Styled === //

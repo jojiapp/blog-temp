@@ -37,7 +37,9 @@ repositories {
 }
 
 ext {
-    set('snippetsDir', file("build/generated-snippets"))
+    set('snippetsDir', file('build/generated-snippets')) // 추가
+    set('documentDir', file('src/main/resources/static/docs')) // 추가
+    set('bootJarDocumentPath', 'static/docs') // 추가
 }
 
 dependencies {
@@ -53,7 +55,7 @@ jar {
 }
 
 clean {
-    delete file('src/main/resources/static/docs')
+    delete documentDir
 }
 
 test {
@@ -68,20 +70,20 @@ asciidoctor {
 }
 
 asciidoctor.doFirst {
-    delete file('src/main/resources/static/docs')
+    delete documentDir
 }
 
 bootJar {
     dependsOn asciidoctor
     from("${asciidoctor.outputDir}") {
-        into 'static/docs'
+        into bootJarDocumentPath
     }
 }
 
 task copyDocument(type: Copy) {
     dependsOn asciidoctor
     from file("${asciidoctor.outputDir}")
-    into file("src/main/resources/static/docs")
+    into documentDir
 }
 
 build {
@@ -116,11 +118,17 @@ configurations {
 
 ```groovy
 ext {
-    set('snippetsDir', file("build/generated-snippets"))
+    set('snippetsDir', file('build/generated-snippets')) // 추가
+    set('documentDir', file('src/main/resources/static/docs')) // 추가
+    set('bootJarDocumentPath', 'static/docs') // 추가
 }
 ```
 
-- `Snippets`이 생성 될 위치 입니다.
+- `snippetsDir`: `Snippets`이 생성 될 위치 입니다.
+- `documentDir`': 문서가 복사 될 위치 입니다.
+    - 로컬에서 문서를 확인하기 위한 용도
+- `bootJarDocumentPath`: `jar`파일로 패키징 시 문서를 복사할 위치 입니다.
+    - 배포 시, 문서를 볼 수 있도록 하기 위한 용도
 
 > `Snippets`은 테스트 코드를 통해 생성된 문서 조각입니다. `Snippets`을 조합해 문서를 만들 수 있습니다.
 
@@ -185,7 +193,7 @@ asciidoctor {
 
 ```groovy
 asciidoctor.doFirst {
-    delete file('src/main/resources/static/docs')
+    delete documentDir
 }
 ```
 
@@ -198,7 +206,7 @@ asciidoctor.doFirst {
 bootJar {
     dependsOn asciidoctor
     from("${asciidoctor.outputDir}") {
-        into 'static/docs'
+        into bootJarDocumentPath
     }
 }
 ```
@@ -216,11 +224,11 @@ bootJar {
 task copyDocument(type: Copy) {
     dependsOn asciidoctor
     from file("${asciidoctor.outputDir}")
-    into file("src/main/resources/static/docs")
+    into documentDir
 }
 ```
 
-- `copyDocument`: `bootJar`를 통해 배포 시에는 문서가 포함되도록 하였습니다만, `IntelliJ`같은 `Tool`에서 실행하면 없다고 뜹니다.  
+- `copyDocument`: `bootJar`를 통해 배포 시에는 문서가 포함되도록 하였습니다만, `IntelliJ`같은 `Tool`에서 실행하면 존재하지 않는 경로(`404`)가 뜹니다.  
   그렇기 때문에 `src/main/resources/static/docs`에 문서를 복사하여 볼 수 있도록 만들어 줍니다.
 
 #### Build
@@ -237,7 +245,7 @@ build {
 
 ```groovy
 clean {
-    delete file('src/main/resources/static/docs')
+    delete documentDir
 }
 ```
 

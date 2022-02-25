@@ -3,20 +3,20 @@ import styled, { css } from 'styled-components'
 import { SkillButtonPropsType } from './SkillTitleButtons'
 
 type PropsType = SkillButtonPropsType & {
-	skillCategory: SkillCategory
+  skillCategory: SkillCategory
 }
 
 type ButtonStyledPropsType = {
-	isSelected: boolean
+  isSelected: boolean
 }
 
 const SkillTitleButton = ({
-	handleButtonClick,
-	currentSkill,
-	skillCategory
+  handleButtonClick,
+  currentSkill,
+  skillCategory
 }: PropsType) => (
-	<Button onClick={(e) => handleButtonClick(e, skillCategory)}
-	        isSelected={currentSkill === skillCategory}>{skillCategory}</Button>
+  <Button onClick={(e) => handleButtonClick(e, skillCategory)}
+          isSelected={currentSkill === skillCategory}>{skillCategory}</Button>
 )
 
 // === Styled === //

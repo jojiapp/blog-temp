@@ -41,8 +41,8 @@ updatedAt: 2022-02-16
 val a = "a"
 
 when (a) {
-	"a"      -> println("a")
-	"abcabc" -> println("b")
+    "a"      -> println("a")
+    "abcabc" -> println("b")
 }
 ```
 

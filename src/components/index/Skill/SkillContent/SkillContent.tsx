@@ -5,17 +5,17 @@ import { nanoid } from 'nanoid'
 import SkillItem from './Skillitem/SkillItem'
 
 type PropsType = {
-	currentSkill: SkillCategory
+  currentSkill: SkillCategory
 }
 
 const SkillContent = ({ currentSkill }: PropsType) => {
-	return (
-		<Container>
-			{getCurrentSkills(currentSkill).map(skill =>
-				<SkillItem key={nanoid()} skillItemVo={skill}/>
-			)}
-		</Container>
-	)
+  return (
+    <Container>
+      {getCurrentSkills(currentSkill).map(skill =>
+        <SkillItem key={nanoid()} skillItemVo={skill}/>
+      )}
+    </Container>
+  )
 }
 
 // === Styled === //

@@ -4,29 +4,29 @@ import HistoryWork from './HistoryWork'
 import { nanoid } from 'nanoid'
 
 type PropsType = {
-	historyCompanyVo: HistoryCompanyVo
+  historyCompanyVo: HistoryCompanyVo
 }
 
 const HistoryCompany = ({ historyCompanyVo }: PropsType) => (
-	<Container>
-		<Title historyCompanyVo={historyCompanyVo}/>
-		<HistoryWorksWrapper>
-			{historyCompanyVo.getHistoryWorks().map(historyWork =>
-				<HistoryWork key={nanoid()} historyWorkVo={historyWork}/>
-			)}
-		</HistoryWorksWrapper>
-	</Container>
+  <Container>
+    <Title historyCompanyVo={historyCompanyVo}/>
+    <HistoryWorksWrapper>
+      {historyCompanyVo.getHistoryWorks().map(historyWork =>
+        <HistoryWork key={nanoid()} historyWorkVo={historyWork}/>
+      )}
+    </HistoryWorksWrapper>
+  </Container>
 )
 
 const Title = ({ historyCompanyVo }: PropsType) => (
-	<TitleText>
-		<span>{historyCompanyVo.getCompany()}</span>
-		<span>[{historyCompanyVo.getJob()}]</span>
-		<span>|</span>
-		<span>{historyCompanyVo.getStartDate()}</span>
-		<span>~</span>
-		<span>{historyCompanyVo.getEndDate()}</span>
-	</TitleText>
+  <TitleText>
+    <span>{historyCompanyVo.getCompany()}</span>
+    <span>[{historyCompanyVo.getJob()}]</span>
+    <span>|</span>
+    <span>{historyCompanyVo.getStartDate()}</span>
+    <span>~</span>
+    <span>{historyCompanyVo.getEndDate()}</span>
+  </TitleText>
 )
 
 // === Styled === //

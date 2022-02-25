@@ -4,31 +4,31 @@ import { MouseEvent } from 'react'
 import SkillTitleButton from './SkillTitleButton'
 
 export type SkillButtonPropsType = {
-	handleButtonClick: (
-		e: MouseEvent<HTMLButtonElement>, currentSkill: SkillCategory) => void,
-	currentSkill: SkillCategory
+  handleButtonClick: (
+    e: MouseEvent<HTMLButtonElement>, currentSkill: SkillCategory) => void,
+  currentSkill: SkillCategory
 }
 
 const SkillTitleButtons = ({
-	handleButtonClick,
-	currentSkill
+  handleButtonClick,
+  currentSkill
 }: SkillButtonPropsType) => {
-	return (
-		<Wrapper>
-			<SkillTitleButton handleButtonClick={handleButtonClick}
-			                  currentSkill={currentSkill}
-			                  skillCategory={SkillCategory.BACK_END}
-			/>
-			<SkillTitleButton handleButtonClick={handleButtonClick}
-			                  currentSkill={currentSkill}
-			                  skillCategory={SkillCategory.FRONT_END}
-			/>
-			<SkillTitleButton handleButtonClick={handleButtonClick}
-			                  currentSkill={currentSkill}
-			                  skillCategory={SkillCategory.TOOL}
-			/>
-		</Wrapper>
-	)
+  return (
+    <Wrapper>
+      <SkillTitleButton handleButtonClick={handleButtonClick}
+                        currentSkill={currentSkill}
+                        skillCategory={SkillCategory.BACK_END}
+      />
+      <SkillTitleButton handleButtonClick={handleButtonClick}
+                        currentSkill={currentSkill}
+                        skillCategory={SkillCategory.FRONT_END}
+      />
+      <SkillTitleButton handleButtonClick={handleButtonClick}
+                        currentSkill={currentSkill}
+                        skillCategory={SkillCategory.TOOL}
+      />
+    </Wrapper>
+  )
 }
 
 // === Styled === //

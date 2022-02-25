@@ -5,19 +5,19 @@ import { MouseEvent, useCallback, useState } from 'react'
 import SkillCategory from './skillCategory'
 
 const Skill = () => {
-	const [currentSkill, setCurrentSkill] = useState(SkillCategory.BACK_END)
-	const handleButtonClick = useCallback(
-		(e: MouseEvent<HTMLButtonElement>, currentSkill: SkillCategory) => {
-			setCurrentSkill(currentSkill)
-		}, [])
+  const [currentSkill, setCurrentSkill] = useState(SkillCategory.BACK_END)
+  const handleButtonClick = useCallback(
+    (e: MouseEvent<HTMLButtonElement>, currentSkill: SkillCategory) => {
+      setCurrentSkill(currentSkill)
+    }, [])
 
-	return (
-		<Container>
-			<SkillTitle handleButtonClick={handleButtonClick}
-			            currentSkill={currentSkill}/>
-			<SkillContent currentSkill={currentSkill}/>
-		</Container>
-	)
+  return (
+    <Container>
+      <SkillTitle handleButtonClick={handleButtonClick}
+                  currentSkill={currentSkill}/>
+      <SkillContent currentSkill={currentSkill}/>
+    </Container>
+  )
 }
 
 // === Styled === //

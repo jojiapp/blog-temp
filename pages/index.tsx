@@ -5,13 +5,13 @@ import styled from 'styled-components'
 import Skill from '../src/components/index/Skill'
 
 const Home: NextPage = () => {
-	return (
-		<Container>
-			<Profile/>
-			<History/>
-			<Skill/>
-		</Container>
-	)
+  return (
+    <Container>
+      <Profile/>
+      <History/>
+      <Skill/>
+    </Container>
+  )
 }
 
 // === Styled === //

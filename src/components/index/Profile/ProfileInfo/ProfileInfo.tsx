@@ -6,19 +6,19 @@ import ProfileInfoVo from './profileInfoVo'
 import { getProfileInfo } from './profileInfoStaticValues'
 
 export type ProfileInfoProps = {
-	profileInfoVo: ProfileInfoVo
+  profileInfoVo: ProfileInfoVo
 }
 
 const profileInfoVo = getProfileInfo()
 
 const ProfileInfo = () => {
-	return (
-		<Container>
-			<ProfileInfoTitle profileInfoVo={profileInfoVo}/>
-			<ProfileInfoDescription profileInfoVo={profileInfoVo}/>
-			<ProfileAdditional profileInfoVo={profileInfoVo}/>
-		</Container>
-	)
+  return (
+    <Container>
+      <ProfileInfoTitle profileInfoVo={profileInfoVo}/>
+      <ProfileInfoDescription profileInfoVo={profileInfoVo}/>
+      <ProfileAdditional profileInfoVo={profileInfoVo}/>
+    </Container>
+  )
 }
 
 // === Styled === //
