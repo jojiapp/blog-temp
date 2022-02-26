@@ -3,10 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const HeaderLogo = () => (
-  <Link href={'/'}>
-    <a>
-      <LogoBox>JOJI</LogoBox>
-    </a>
+  <Link href={'/'} passHref>
+    <LogoBox>JOJI</LogoBox>
   </Link>
 )
 

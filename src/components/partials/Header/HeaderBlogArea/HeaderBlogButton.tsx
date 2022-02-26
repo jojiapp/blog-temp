@@ -7,15 +7,13 @@ import styled from 'styled-components'
 const blogLink = '/blog'
 
 const HeaderBlogButton = () => (
-  <Link href={blogLink}>
-    <a>
-      <Box>
-        <Text>기술 블로그</Text>
-        <IconBox>
-          <FontAwesomeIcon icon={faAngleRight}/>
-        </IconBox>
-      </Box>
-    </a>
+  <Link href={blogLink} passHref>
+    <Box>
+      <Text>기술 블로그</Text>
+      <IconBox>
+        <FontAwesomeIcon icon={faAngleRight}/>
+      </IconBox>
+    </Box>
   </Link>
 )
 
