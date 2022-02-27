@@ -15,7 +15,11 @@ updatedAt: 2022-02-26
 >
 > 이번 시간에는 `Gradle` 설정 방법에 대해 알아보겠습니다.
 
-## 전체 코드
+## Gradle 설정
+
+`Spring Rest Docs`를 사용하기 위해서는 의존성을 추가한 뒤, `build`시 처리할 로직을 추가로 작성해야합니다.
+
+### 전체 코드
 
 ```groovy
 plugins {
@@ -49,6 +53,7 @@ ext {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     annotationProcessor 'org.projectlombok:lombok'
     asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor' // 추가
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -80,14 +85,14 @@ asciidoctor {
 
 bootJar {
     dependsOn asciidoctor
-    from('${asciidoctor.outputDir}') {
+    from("${asciidoctor.outputDir}") {
         into bootJarDocumentPath
     }
 }
 
 task copyDocument(type: Copy) {
     dependsOn asciidoctor
-    from file('${asciidoctor.outputDir}')
+    from file("${asciidoctor.outputDir}")
     into documentDir
 }
 
@@ -98,7 +103,7 @@ build {
 
 - `Gradle7.x` 버전 부터 `org.asciidoctor.convert` 플러그인은 사용할 수 없는 관계로 `org.asciidoctor.jvm.convert` 라이브러리를 사용합니다.
 
-## Configurations
+### Configurations
 
 ```groovy
 configurations {
@@ -112,7 +117,7 @@ configurations {
 - `extendsFrom annotationProcessor ~`: `lombok` 같은 라이브러리를 사용하기 위함 입니다.
 - `asciidoctorExtensions`: 추후 `operation`과 `{snippets}`을 사용하기 위한 설정 과정입니다.
 
-## Ext
+### Ext
 
 ```groovy
 ext {
@@ -130,12 +135,13 @@ ext {
 
 > `Snippets`은 테스트 코드를 통해 생성된 문서 조각입니다. `Snippets`을 조합해 문서를 만들 수 있습니다.
 
-## Dependencies
+### Dependencies
 
 ```groovy
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     annotationProcessor 'org.projectlombok:lombok'
     asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor' // 추가
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -151,9 +157,9 @@ dependencies {
 - `implementation 'org.springframework.boot:spring-boot-starter-hateoas'`
     - `HATEOAS`도 간단하게 적용해보기 위해 추가하였습니다.
 
-## Tasks
+### Tasks
 
-### Jar
+#### Jar
 
 ```groovy
 jar {
@@ -163,7 +169,7 @@ jar {
 
 - `enabled true`로 설정(기본 값)하면 `plain jar`파일을 만들어 줍니다. 현재는 필요 없으니 `false`로 설정 하였습니다.
 
-### Test
+#### Test
 
 ```groovy
 test {
@@ -174,7 +180,7 @@ test {
 
 - `Test`가 완료되면 `Snippets`이 생기는데, 해당 `Snippets`이 생성될 위치를 지정합니다,
 
-### Asciidoctor
+#### Asciidoctor
 
 ```groovy
 asciidoctor {
@@ -195,12 +201,12 @@ asciidoctor {
 - `inputs.dir snippetsDir`: `Snippets` 위치를 지정합니다.
 - `dependsOn test`: 해당 `Task`실행 이전에 `test`를 먼저 실행합니다.
 
-### BootJar
+#### BootJar
 
 ```groovy
 bootJar {
     dependsOn asciidoctor
-    from('${asciidoctor.outputDir}') {
+    from("${asciidoctor.outputDir}") {
         into bootJarDocumentPath
     }
 }
@@ -213,12 +219,12 @@ bootJar {
 
 > 여러 블로그들을 보면 복사 경로가 `BOOT-INF/classes/static/docs`라고 되어있는데, 해당 경로가 아닌 `static/docs`로 해줘야합니다.
 
-### CopyDocument(Custom)
+#### CopyDocument(Custom)
 
 ```groovy
 task copyDocument(type: Copy) {
     dependsOn asciidoctor
-    from file('${asciidoctor.outputDir}')
+    from file("${asciidoctor.outputDir}")
     into documentDir
 }
 ```
@@ -226,7 +232,7 @@ task copyDocument(type: Copy) {
 - `copyDocument`: `bootJar`를 통해 배포 시에는 문서가 포함되도록 하였습니다만, `IntelliJ`같은 `Tool`에서 실행하면 존재하지 않는 경로(`404`)가 뜹니다.  
   그렇기 때문에 `src/main/resources/static/docs`에 문서를 복사하여 볼 수 있도록 만들어 줍니다.
 
-### Build
+#### Build
 
 ```groovy
 build {
@@ -236,7 +242,7 @@ build {
 
 - `build`되기 이전에 `src/main/resources/static/docs`에 복사 되도록 설정합니다.
 
-### Clean
+#### Clean
 
 ```groovy
 clean {
@@ -245,6 +251,10 @@ clean {
 ```
 
 - `clean`을 실행하면 `src/main/resources/static/docs` 폴더를 삭제 함으로써, `build`시 깔끔히 새로운 문서를 볼 수 있습니다.
+
+> `Spring Rest Docs`의 `Gradle`설정 방법에 대해 알아보았습니다.
+>
+> 다음 시간에는 `Test 코드`를 작성하여 어떻게 `snippets`을 생성할 수 있는지 알아보겠습니다.
 
 ---
 
