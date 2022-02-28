@@ -14,6 +14,8 @@ updatedAt: 2022-02-26
 > `Spring Rest Docs`는 이런 문서화를 테스트 코드를 작성하면 자동으로 만들어 주는 `Spring 공식 문서자동화 라이브러리` 입니다.
 >
 > 이번 시간에는 `Gradle` 설정 방법에 대해 알아보겠습니다.
+>
+> > 작성된 모든 코드는 [Github](https://github.com/jojiapp/spring-rest-docs-java) 에서 확인 하실 수 있습니다.
 
 ## Gradle 설정
 
