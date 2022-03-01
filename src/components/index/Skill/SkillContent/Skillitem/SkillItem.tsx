@@ -11,7 +11,7 @@ type IconPropsType = {
 }
 
 const SkillItem = ({ skillItemVo }: PropsType) => (
-  <Wrapper>
+  <Container>
     <IconBox iconColor={skillItemVo.getIconColor()}>
       <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <title>{skillItemVo.getLanguage()}</title>
@@ -23,13 +23,17 @@ const SkillItem = ({ skillItemVo }: PropsType) => (
       {skillItemVo.getContents().map(content =>
         <span key={nanoid()}>{content}</span>)}
     </DescriptionText>
-  </Wrapper>
+  </Container>
 )
 
 // === Styled === //
 
-const Wrapper = styled.div`
-
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--light_gray);
+  padding: 3rem 2rem;
 `
 
 const IconBox = styled.div<IconPropsType>`
