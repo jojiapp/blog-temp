@@ -17,8 +17,13 @@ const Home: NextPage = () => {
 // === Styled === //
 
 const Container = styled.div`
-  & > section {
+  & > section:not(:last-of-type) {
     min-height: 100vh;
+    margin-bottom: 15rem;
+  }
+
+  & > section:first-of-type {
+    margin-bottom: 0;
   }
 `
 

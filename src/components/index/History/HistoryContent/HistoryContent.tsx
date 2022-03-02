@@ -10,11 +10,9 @@ const historyCompanies = [
 
 const HistoryContent = () => (
   <Container>
-    <Wrapper>
-      {historyCompanies.map(historyCompanyVo =>
-        <HistoryCompany key={nanoid()} historyCompanyVo={historyCompanyVo}/>
-      )}
-    </Wrapper>
+    {historyCompanies.map(historyCompanyVo =>
+      <HistoryCompany key={nanoid()} historyCompanyVo={historyCompanyVo}/>
+    )}
   </Container>
 )
 
@@ -22,9 +20,6 @@ const HistoryContent = () => (
 
 const Container = styled.div`
   flex: 2;
-`
-
-const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;

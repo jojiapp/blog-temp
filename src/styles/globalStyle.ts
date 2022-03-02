@@ -46,6 +46,10 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     padding: 1rem 1rem 1rem 1.5rem;
   }
+
+  ul, li {
+    list-style: none;
+  }
 `
 
 export default GlobalStyle

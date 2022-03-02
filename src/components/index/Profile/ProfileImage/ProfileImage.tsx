@@ -13,6 +13,7 @@ const ProfileImage = () => (
 const Container = styled.div`
   flex: 1;
   height: 100%;
+  padding-right: 5rem;
 `
 
 const ImageSource = styled.img`
