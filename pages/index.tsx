@@ -3,6 +3,7 @@ import Profile from '../src/components/index/Profile'
 import History from '../src/components/index/History'
 import styled from 'styled-components'
 import Skill from '../src/components/index/Skill'
+import Project from '../src/components/index/Project'
 
 const Home: NextPage = () => {
   return (
@@ -10,6 +11,7 @@ const Home: NextPage = () => {
       <Profile/>
       <History/>
       <Skill/>
+      <Project/>
     </Container>
   )
 }
