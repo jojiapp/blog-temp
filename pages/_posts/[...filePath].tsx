@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { nanoid } from 'nanoid'
 import MarkdownPost from '../../src/service/markdownPost'
 
 type TestProps = {
@@ -7,20 +6,16 @@ type TestProps = {
 }
 
 const Post = ({ files }: TestProps) => (
-  // <div>post</div>
-  files.map(f => <div key={nanoid()}>{f}</div>
-  )
+  <div>{files}</div>
 )
 
 type Propsss = {
-  filePath: string
+  filePath: string[]
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  let markdownPost = new MarkdownPost()
-
   const filePath = params as Propsss
-  const files = [markdownPost.getFiles()]
+  const files = filePath.filePath
   return {
     props: {
       files
@@ -29,11 +24,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const markdownPost = MarkdownPost.getInstance()
+  const paths: { params: { filePath: string[] } }[] = []
+
+  markdownPost.getAllFilePaths().forEach(filePath => paths.push({ params: { filePath } }))
   return {
-    paths: [
-      { params: { filePath: ['a', 'b'] } },
-      { params: { filePath: ['c'] } }
-    ],
+    paths,
     fallback: false
   }
 }
