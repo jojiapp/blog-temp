@@ -1,33 +1,37 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import MarkdownPost from '../../src/service/markdownPost'
+import { getPostPaths, readPosts } from '../../src/service/markdownPost/readMarkdown'
 
-type TestProps = {
-  files: string[]
+type PostPropsType = {
+  markdownPostsContent: string[]
 }
 
-const Post = ({ files }: TestProps) => (
-  <div>{files}</div>
-)
+const Post = ({ markdownPostsContent }: PostPropsType) => {
+  const markdownPosts = markdownPostsContent.map(postContent => MarkdownPost.of(postContent))
+  const a = markdownPosts[0]
+  return (
+    <div>{a.getContent()}</div>
+  )
+}
 
-type Propsss = {
+type ParamsType = {
   filePath: string[]
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const filePath = params as Propsss
-  const files = filePath.filePath
+  const paramsType = params as ParamsType
+  const markdownPostsContent = readPosts()
   return {
     props: {
-      files
+      markdownPostsContent
     }
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const markdownPost = MarkdownPost.getInstance()
   const paths: { params: { filePath: string[] } }[] = []
 
-  markdownPost.getAllFilePaths().forEach(filePath => paths.push({ params: { filePath } }))
+  getPostPaths().forEach(filePath => paths.push({ params: { filePath } }))
   return {
     paths,
     fallback: false
