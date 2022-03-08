@@ -6,24 +6,41 @@ class MarkdownPost {
   private readonly createdAt: Date
   private readonly updatedAt: Date
   private readonly content: string
+  private readonly titleList: string[]
 
   static of (markdownContent: string): MarkdownPost {
     const [description, order, createdAt, updatedAt] = this.parseMetadata(markdownContent)
     const content = this.parseContent(markdownContent)
-    
+    const title = this.parseTitle(content)
+    const titleList = this.parseTitleList(content)
     return new MarkdownPost(
-      '',
+      title,
       description,
       Number(order),
       new Date(createdAt),
       new Date(updatedAt),
-      content
+      content,
+      titleList
     )
+  }
+
+  private static parseTitleList (content: string): string[] {
+    const titleListReg = new RegExp(/#{2,}\s.+/, 'g')
+    const titleList = content.match(titleListReg)
+
+    if (!titleList) {
+      return []
+    }
+    return titleList.map(title => title.replaceAll('#', '').trim())
+  }
+
+  private static parseTitle (content: string) {
+    return content.split('\n')[0].replace('#', '').trim()
   }
 
   private static parseContent (markdownContent: string) {
     const { line, metadataEndIndex } = this.lastIndexOfMetadata(markdownContent)
-    return markdownContent.substring(metadataEndIndex + line.length + 1)
+    return markdownContent.trim().substring(metadataEndIndex + line.length)
   }
 
   private static parseMetadata (markdownContent: string) {
@@ -44,7 +61,8 @@ class MarkdownPost {
     order: number,
     createdAt: Date,
     updatedAt: Date,
-    content: string
+    content: string,
+    titleList: string[]
   ) {
     this.title = title
     this.description = description
@@ -52,10 +70,19 @@ class MarkdownPost {
     this.createdAt = createdAt
     this.updatedAt = updatedAt
     this.content = content
+    this.titleList = titleList
+  }
+
+  getTitle (): string {
+    return this.title
   }
 
   getContent (): string {
     return this.content
+  }
+
+  getTitleList (): string[] {
+    return this.titleList
   }
 }
 

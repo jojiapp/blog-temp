@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
-import Profile from '../src/components/index/Profile'
-import History from '../src/components/index/History'
 import styled from 'styled-components'
+import Profile from '../src/components/index/Profile'
 import Skill from '../src/components/index/Skill'
 import Project from '../src/components/index/Project'
+import History from '../src/components/index/History'
 
 const Home: NextPage = () => {
   return (
